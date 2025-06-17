@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify';
 const SignIn = () => {
   const navigate=useNavigate();
+  const [data,setUserData]=useState({});
+  const [Email,setEmail]=useState('');
+  const [Password,setPassword]=useState('');
   function handleClick(){
     navigate('/');
+  }
+  async function handleSignIn(){
+    try{
+      const data=await fetch('localhost:3000/api/auth/login',{
+        method: "POST",
+        body: JSON.stringify({Email,Password})
+      })
+      const result=await data.json();
+      if(result){
+        toast.success("Profile updated successfully!");
+      }
+    }catch(error){
+      console.log("Error occurred",error);
+    }
   }
   return (
     <div className='w-full h-screen flex flex-col justify-center items-center my-auto border-2  space-y-3'>
@@ -19,9 +37,19 @@ const SignIn = () => {
           <p className='text-[#6c6f7e] text-xl'>Enter your credentials to access your account</p>
         </div>
         <label htmlFor="">Email</label>
-        <input type="text" placeholder='Your@email.com' className='bg-green-400 h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+        <input
+        value={Email}
+        onChange={(e)=>setEmail(e.target.value)} 
+        type="text" 
+        placeholder='Your@email.com' 
+        className=' h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
         <label htmlFor="">Password</label>
-        <input type="password" placeholder='••••••••' className='bg-green-400 h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+        <input 
+        value={Password}
+        onChange={(e)=>setPassword(e.target.value)} 
+        type="password" 
+        placeholder='••••••••' 
+        className=' h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
         <div className='flex w-[100%] justify-between'>
           <div>
             <input type="checkbox" name="" id="" className='mt-3px' />
@@ -29,7 +57,8 @@ const SignIn = () => {
           </div>
           <p className='text-[#70aefa] cursor-pointer transition-all duration-400 hover:underline decoration-[#70aefa] decoration-2 underline-offset-4'>Forgot Password?</p>
         </div>
-        <button className='w-[100%] bg-[#70aefa] text-white h-[8%] rounded-xl shadow-md'>Sign In</button>
+        <button className='w-[100%] bg-[#70aefa] text-white h-[8%] rounded-xl shadow-md' onClick={handleSignIn}>Sign In</button>
+        <ToastContainer />
         <div className='w-[100%] flex justify-center items-center gap-2 mt-auto'>
           <p className='text-[#6c6f7e]'>Don't have an account?</p>
           <span className="text-blue-500 cursor-pointer">Sign Up Here</span>
