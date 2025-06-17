@@ -6,6 +6,7 @@ import './App.css'
 import Home from './pages/Home/Home'
 import SignIn from './pages/Signin/SignIn'
 import Dashboard from './pages/Dashboard/Dashboard'
+import Register from './pages/Register/Register'
 const router=createBrowserRouter([
   {
     path:'/',
@@ -17,6 +18,10 @@ const router=createBrowserRouter([
   },{
     path:'/dashboard',
     element:<Dashboard/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
   }
 ])
 function App() {

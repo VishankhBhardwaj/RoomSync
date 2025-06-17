@@ -8,3 +8,14 @@
 body{
   overflow-x: hidden;
 }
+.Toastify__toast-container {
+  top: 1rem !important;
+  right: 1rem !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 9999 !important;
+}
+
+.Toastify__toast {
+  text-align: left !important;
+}

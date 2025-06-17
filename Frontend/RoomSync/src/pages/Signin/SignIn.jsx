@@ -1,17 +1,45 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 const SignIn = () => {
-  const navigate=useNavigate();
-  function handleClick(){
+  const navigate = useNavigate();
+  const [data, setUserData] = useState({});
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  function handleClick() {
     navigate('/');
   }
+  function togglePassword() {
+    setShowPassword(!showPassword)
+  }
+  async function handleSignIn() {
+    try {
+      const data = await fetch('http://localhost:3000/api/auth/login', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"   // <-- Required header
+        },
+        body: JSON.stringify({ Email, Password })
+      })
+      const result = await data.json();
+      if (result) {
+        localStorage.setItem("loggedInUser",result);
+        toast.success("Login Successfull!");
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      console.log("Error occurred", error);
+    }
+  }
   return (
-    <div className='w-full h-screen flex flex-col justify-center items-center my-auto border-2  space-y-3'>
+    <div className='w-full h-screen flex flex-col justify-center items-center my-auto border-2  space-y-3 animate__animated animate__backInLeft'>
       <button onClick={handleClick} className='w-[200px] h-[50px] transition-all duration-200 hover:bg-[#d7e9fe] hover:text-[#0545af] rounded-xl'>Back To Home</button>
       <h1 className='text-3xl'>Room Sync</h1>
       <h2 className='text-4xl'>Welcome Back</h2>
       <p className='text-[#6c6f7e] text-xl'>
-        Sign in to your account to continue
+        Sign up to your account to continue
       </p>
       <div className=' flex flex-col px-6 py-3 space-y-2 border-2 shadow-xl w-[30%] h-[70%] rounded-xl'>
         <div className='mb-3'>
@@ -19,9 +47,25 @@ const SignIn = () => {
           <p className='text-[#6c6f7e] text-xl'>Enter your credentials to access your account</p>
         </div>
         <label htmlFor="">Email</label>
-        <input type="text" placeholder='Your@email.com' className='bg-green-400 h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+        <input
+          value={Email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder='Your@email.com'
+          className=' h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
         <label htmlFor="">Password</label>
-        <input type="password" placeholder='••••••••' className='bg-green-400 h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+        <input
+          type={showPassword ? 'text' : 'password'}
+          value={Password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder='••••••••'
+          className=' h-[50px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+        <span
+          onClick={togglePassword}
+          className="absolute right-[590px] top-[61%] transform -translate-y-1/2 cursor-pointer text-xl text-gray-500"
+        >
+          {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+        </span>
         <div className='flex w-[100%] justify-between'>
           <div>
             <input type="checkbox" name="" id="" className='mt-3px' />
@@ -29,17 +73,18 @@ const SignIn = () => {
           </div>
           <p className='text-[#70aefa] cursor-pointer transition-all duration-400 hover:underline decoration-[#70aefa] decoration-2 underline-offset-4'>Forgot Password?</p>
         </div>
-        <button className='w-[100%] bg-[#70aefa] text-white h-[8%] rounded-xl shadow-md'>Sign In</button>
+        <button className='w-[100%] bg-[#70aefa] hover:bg-[#7eb4f6] text-white h-[8%] rounded-xl shadow-md' onClick={handleSignIn}>Sign In</button>
+        <ToastContainer />
         <div className='w-[100%] flex justify-center items-center gap-2 mt-auto'>
           <p className='text-[#6c6f7e]'>Don't have an account?</p>
-          <span className="text-blue-500 cursor-pointer">Sign Up Here</span>
+          <Link className="text-blue-500 cursor-pointer hover:underline underline-offset-4" to='/register'>Sign Up Here</Link>
         </div>
         <p className='text-center text-[#6c6f7e]'>Or continue with</p>
-        <div className='flex gap-2 justify-around mt-6px h-[8%]'>
-          <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#d7e9fe] h-[100%] rounded-xl shadow-2xl'>
+        <div className='flex gap-2 justify-around mt-6px h-[9%]'>
+          <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#d7e9fe] h-[110%] rounded-xl shadow-2xl'>
             Google
           </button>
-          <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#d7e9fe] h-[100%] rounded-xl shadow-2xl'>
+          <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#d7e9fe] h-[110%] rounded-xl shadow-2xl'>
             Facebook
           </button>
         </div>
