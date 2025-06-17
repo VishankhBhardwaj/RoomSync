@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CountUp from 'react-countup';
-
+import BlurText from "../../Components/Animations/BlurText";
 const Home = () => {
     const navigate = useNavigate();
-
+    const handleAnimationComplete = () => {
+        console.log('Animation completed!');
+    };
     const handleClick = () => {
         navigate('/dashboard');
     };
@@ -27,8 +29,24 @@ const Home = () => {
 
             {/* Hero Section */}
             <div className='flex flex-col items-center text-center px-4'>
-                <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-10 font-bold'>Find Your Perfect</h1>
-                <span className='text-[#61a6fa] text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2'>Roommate</span>
+                {/* <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-10 font-bold'>Find Your Perfect</h1> */}
+                <BlurText
+                    text="Find Your Perfect"
+                    delay={150}
+                    animateBy="words"
+                    direction="top"
+                    onAnimationComplete={handleAnimationComplete}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-10 font-boldl mb-8"
+                />
+                {/* <span className='text-[#61a6fa] text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2'>Roommate</span> */}
+                <BlurText
+                    text="Roomate"
+                    delay={150}
+                    animateBy="words"
+                    direction="top"
+                    onAnimationComplete={handleAnimationComplete}
+                    className="text-[#61a6fa] text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2"
+                />
                 <p className='text-[#747a82] text-md sm:text-xl mt-4 leading-relaxed'>
                     AI-powered matching connects you with compatible roommates based on <br className='hidden sm:block' />
                     lifestyle, preferences, and personality traits. Join thousands who found their <br className='hidden sm:block' />
@@ -73,7 +91,7 @@ const Home = () => {
                 </div>
 
                 {/* Stats Section */}
-                <div className='w-full flex flex-col sm:flex-row justify-around items-center gap-8 mt-10 px-4'>
+                <div className='w-full flex flex-col sm:flex-row justify-around items-center gap-8 mt-10 px-4 h-[200px]'>
                     <div className='text-center'>
                         <h2 className='text-3xl sm:text-4xl font-bold text-blue-400'>
                             <CountUp end={15000} duration={2} separator="," suffix="+" />
