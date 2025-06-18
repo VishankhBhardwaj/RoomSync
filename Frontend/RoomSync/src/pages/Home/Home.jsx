@@ -2,17 +2,25 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CountUp from 'react-countup';
 import BlurText from "../../Components/Animations/BlurText";
+import { toast, ToastContainer } from 'react-toastify';
 const Home = () => {
     const navigate = useNavigate();
     const handleAnimationComplete = () => {
         console.log('Animation completed!');
     };
     const handleClick = () => {
-        navigate('/dashboard');
+        const token=localStorage.token;
+        if(token){
+            navigate('/dashboard');
+        }else{
+            toast.success("Please Login/Register first");
+            navigate('/signin');
+        }
+        
     };
 
     return (
-        <div className='w-full min-h-screen bg-white'>
+        <div className='w-full min-h-screen bg-white animate__animated animate__bounceInDown'>
             {/* Navbar */}
             <nav className='flex flex-col sm:flex-row justify-between items-center bg-[#f0f3f9] w-full px-4 sm:px-6 py-4 shadow-md sticky top-0'>
                 <Link className='font-bold text-2xl sm:text-3xl text-[#4f4864]' to="/">RoomSync</Link>
@@ -36,7 +44,7 @@ const Home = () => {
                     animateBy="words"
                     direction="top"
                     onAnimationComplete={handleAnimationComplete}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-10 font-boldl mb-8"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mt-10 font-boldl mb-8 "
                 />
                 {/* <span className='text-[#61a6fa] text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2'>Roommate</span> */}
                 <BlurText
@@ -60,6 +68,7 @@ const Home = () => {
                         onClick={handleClick}>
                         🚀 Start Matching Now
                     </button>
+                    <ToastContainer />
                     <button className='w-full sm:w-[80%] rounded-md bg-[#d7e9fe] transition-all duration-200 hover:scale-105 text-black font-bold h-12'>
                         📝 Take Personality Quiz
                     </button>

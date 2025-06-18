@@ -25,9 +25,11 @@ const SignIn = () => {
       })
       const result = await data.json();
       if (result) {
-        localStorage.setItem("loggedInUser",result);
+        localStorage.setItem("token",result.token);
         toast.success("Login Successfull!");
         navigate('/dashboard');
+      }else{
+        toast.fail("Login Failed")
       }
     } catch (error) {
       console.log("Error occurred", error);
