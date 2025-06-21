@@ -1,4 +1,4 @@
-import {React,useState} from 'react';
+import { React, useState } from 'react';
 import { FaHome, FaChartBar, FaHeart, FaComments, FaUser, FaCog, FaFileAlt } from 'react-icons/fa';
 import CountUp from 'react-countup'; // Make sure this is installed
 import Home from '../Home/Home';
@@ -8,54 +8,58 @@ import Messages from '../Messages/Messages';
 import PersonalityQuiz from '../PeronalityQuiz/PersonalityQuiz';
 import Profile from '../Profile/Profile';
 import Settings from '../Settings/Settings';
+import { GoArrowLeft } from "react-icons/go";
 
 // npm install react-countup
 
 const Dashboard = () => {
-  const [activeTab,setactiveTab]=useState('Home');
-  function handleClick(label){
+  const [activeTab, setactiveTab] = useState('Home');
+  function handleClick(label) {
     setactiveTab(label);
     console.log(activeTab);
   };
-  
+
   function renderContent() {
-  switch (activeTab) {
-    case "Home":
-      return <Home />;
-    case "RoomMateHub":
-      return <RoomMateHub />;
-    case "matches":
-      return <Matches />;
-    case "Messages":
-      return <Messages/>
-    case "Personality":
-      return <PersonalityQuiz/>
-    case "Profile":
-      return <Profile/>
-    case "Settings":
-      return <Settings/>
-    default:
-      return <Home/>; // or null, or a loader
+    switch (activeTab) {
+      case "Home":
+        return <Home />;
+      case "RoomMateHub":
+        return <RoomMateHub />;
+      case "matches":
+        return <Matches />;
+      case "Messages":
+        return <Messages />
+      case "Personality":
+        return <PersonalityQuiz />
+      case "Profile":
+        return <Profile />
+      case "Settings":
+        return <Settings />
+      default:
+        return <Home />; // or null, or a loader
+    }
   }
-}
   return (
-    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__backInUp">
+    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__backInUp w-full">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-md p-6">
-        <h1 className="text-2xl font-bold text-blue-400 mb-8 bg-white">RoomSync</h1>
+      <aside className="w-[264px] bg-white shadow-md p-6 sm:display:none">
+        <div className='bg-white flex justify-around '>
+          <h1 className="text-2xl font-bold text-blue-400 mb-8 bg-white">RoomSync</h1>
+          <GoArrowLeft className='bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200'/>
+        </div>
         <nav className="space-y-6 text-gray-700 bg-white" >
-          <NavItem icon={<FaHome />} label="Home" onClick={handleClick}/>
-          <NavItem icon={<FaChartBar />} label="RoomMateHub" onClick={handleClick}/>
-          <NavItem icon={<FaHeart />} label="Matches" onClick={handleClick}/>
-          <NavItem icon={<FaComments />} label="Messages" badge={3} onClick={handleClick}/>
-          <NavItem icon={<FaFileAlt />} label="Personality Quiz" onClick={handleClick}/>
-          <NavItem icon={<FaUser />} label="Profile" onClick={handleClick}/>
-          <NavItem icon={<FaCog />} label="Settings" onClick={handleClick}/>
+          <NavItem icon={<FaHome />} label="Home" onClick={handleClick} />
+          <NavItem icon={<FaChartBar />} label="RoomMateHub" onClick={handleClick} />
+          <NavItem icon={<FaHeart />} label="Matches" onClick={handleClick} />
+          <NavItem icon={<FaComments />} label="Messages" badge={3} onClick={handleClick} />
+          <NavItem icon={<FaFileAlt />} label="Personality Quiz" onClick={handleClick} />
+          <NavItem icon={<FaUser />} label="Profile" onClick={handleClick} />
+          <NavItem icon={<FaCog />} label="Settings" onClick={handleClick} />
         </nav>
       </aside>
 
       {/* Main Content */}
-      <div className='bg-[#f6f7f9] border-2 border-red-400 px-10px py-10px w-full'>
+      <div className='bg-[#f6f7f9] px-10px py-10px w-full'>
         {renderContent()}
       </div>
     </div>
@@ -63,9 +67,9 @@ const Dashboard = () => {
 };
 
 // Sidebar nav item
-const NavItem = ({ icon, label, active = false, badge,onClick }) => (
-  <div onClick={()=>{onClick(label)}} className={`flex group items-center justify-between bg-white hover:bg-[#ebf4fe] p-2 rounded-lg cursor-pointer hover:bg-gray-100 ${active ? 'bg-gray-100 font-semibold' : ''}`}>
-    <div className="flex items-center gap-3 bg-white ">
+const NavItem = ({ icon, label, active = false, badge, onClick }) => (
+  <div onClick={() => { onClick(label) }} className={`flex group items-center justify-between bg-white hover:bg-[#ebf4fe] p-2 rounded-lg cursor-pointer  ${active ? 'bg-gray-100 font-semibold' : ''}`}>
+    <div className="flex items-center gap-3 bg-white group-hover:bg-[#ebf4fe]">
       <span className='bg-white group-hover:bg-[#ebf4fe]'>{icon}</span>
       <span className='bg-white group-hover:bg-[#ebf4fe]'>{label}</span>
     </div>
