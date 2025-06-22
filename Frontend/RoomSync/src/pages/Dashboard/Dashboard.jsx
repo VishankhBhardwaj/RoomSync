@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState,useEffect } from 'react';
 import { FaHome, FaChartBar, FaHeart, FaComments, FaUser, FaCog, FaFileAlt } from 'react-icons/fa';
 import CountUp from 'react-countup'; // Make sure this is installed
 import Home from '../Home/Home';
@@ -9,15 +9,30 @@ import PersonalityQuiz from '../PeronalityQuiz/PersonalityQuiz';
 import Profile from '../Profile/Profile';
 import Settings from '../Settings/Settings';
 import { GoArrowLeft } from "react-icons/go";
-
+import { GoArrowRight } from "react-icons/go";
 // npm install react-countup
 
 const Dashboard = () => {
   const [activeTab, setactiveTab] = useState('Home');
+  const [isOpen,setIsOpen]= useState(true);
   function handleClick(label) {
     setactiveTab(label);
     console.log(activeTab);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsOpen(false);
+      } else {
+        setIsOpen(true); // Optional: auto-open on desktop
+      }
+    };
+
+    handleResize(); // run once on mount
+    window.addEventListener('resize', handleResize); // update on resize
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   function renderContent() {
     switch (activeTab) {
@@ -40,26 +55,27 @@ const Dashboard = () => {
     }
   }
   return (
-    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__backInUp w-full">
+    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__backInUp w-full ">
       {/* Sidebar */}
-      <aside className="w-[264px] bg-white shadow-md p-6 sm:display:none">
-        <div className='bg-white flex justify-around '>
-          <h1 className="text-2xl font-bold text-blue-400 mb-8 bg-white">RoomSync</h1>
-          <GoArrowLeft className='bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200'/>
+      <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-white shadow-md transition-all duration-200 hidden md:block`}>
+        <div className='flex justify-around border-b-2 bg-white md:w-[100%] mt-[8px] pb-5'>
+          <h1 className={`${isOpen?'':'hidden'} text-2xl font-bold text-blue-400 mb-8px mt-[8px] bg-white relative text-center`}>RoomSync</h1>
+          {isOpen? <GoArrowLeft onClick={()=>setIsOpen(!isOpen)} className='mb-[20px] bg-white  w-[50px] h-[25px] relative top-3 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200'/>
+          :<GoArrowRight onClick={()=>setIsOpen(!isOpen)} className={`mb-[20px] bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200`}/>}
         </div>
-        <nav className="space-y-6 text-gray-700 bg-white" >
-          <NavItem icon={<FaHome />} label="Home" onClick={handleClick} />
-          <NavItem icon={<FaChartBar />} label="RoomMateHub" onClick={handleClick} />
-          <NavItem icon={<FaHeart />} label="Matches" onClick={handleClick} />
-          <NavItem icon={<FaComments />} label="Messages" badge={3} onClick={handleClick} />
-          <NavItem icon={<FaFileAlt />} label="Personality Quiz" onClick={handleClick} />
-          <NavItem icon={<FaUser />} label="Profile" onClick={handleClick} />
-          <NavItem icon={<FaCog />} label="Settings" onClick={handleClick} />
+        <nav className="space-y-6 text-gray-700 bg-white p-6" >
+          <NavItem icon={'🏠'} label="Home" onClick={handleClick} isOpen={isOpen}/>
+          <NavItem icon={'📊'} label="RoomMateHub" onClick={handleClick}isOpen={isOpen}/>
+          <NavItem icon={'🎯'} label="Matches" onClick={handleClick} isOpen={isOpen}/>
+          <NavItem icon={'💬'} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen}/>
+          <NavItem icon={'📝'} label="Personality Quiz" onClick={handleClick} isOpen={isOpen}/>
+          <NavItem icon={'👤'} label="Profile" onClick={handleClick} isOpen={isOpen}/>
+          <NavItem icon={'⚙️'} label="Settings" onClick={handleClick} isOpen={isOpen}/>
         </nav>
       </aside>
 
       {/* Main Content */}
-      <div className='bg-[#f6f7f9] px-10px py-10px w-full'>
+      <div className='bg-[#f6f7f9] px-10px py-10px w-full sm:items-center'>
         {renderContent()}
       </div>
     </div>
@@ -67,11 +83,11 @@ const Dashboard = () => {
 };
 
 // Sidebar nav item
-const NavItem = ({ icon, label, active = false, badge, onClick }) => (
+const NavItem = ({ icon, label, active = false, badge, onClick,isOpen }) => (
   <div onClick={() => { onClick(label) }} className={`flex group items-center justify-between bg-white hover:bg-[#ebf4fe] p-2 rounded-lg cursor-pointer  ${active ? 'bg-gray-100 font-semibold' : ''}`}>
-    <div className="flex items-center gap-3 bg-white group-hover:bg-[#ebf4fe]">
-      <span className='bg-white group-hover:bg-[#ebf4fe]'>{icon}</span>
-      <span className='bg-white group-hover:bg-[#ebf4fe]'>{label}</span>
+    <div className={`flex items-center gap-3 bg-white group-hover:bg-[#ebf4fe]`}>
+      <span className='bg-white group-hover:bg-[#ebf4fe] text-center p-2'>{icon}</span>
+      <span className={`${isOpen?'':'hidden'} bg-white group-hover:bg-[#ebf4fe] transition-all duration-200`}>{label}</span>
     </div>
     {badge && (
       <span className="bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full">{badge}</span>
