@@ -2,7 +2,7 @@ import React from 'react'
 
 const BasicInfo = () => {
   return (
-    <div className='w-full h-full flex flex-col md:flex-row md:justify-around p-8 gap-10'>
+    <div className='w-full h-full flex flex-col md:flex-row md:justify-around p-8 gap-10 rounded-xl'>
       {/* profile-card */}
       <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-white space-y-6">
         <div className='w-full bg-white'>

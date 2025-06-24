@@ -4,7 +4,7 @@ const Preferences = () => {
   const [budget, setBudget] = useState(1200);
   
   return (
-    <div className="p-6 space-y-6 w-full flex flex-col items-center  min-h-screen">
+    <div className="p-6 space-y-6 w-full flex flex-col items-center  min-h-screen rounded-xl">
 
       {/* Top Section */}
       <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl bg-white">

@@ -32,7 +32,7 @@ const Settings = () => {
             }`} onClick={() => setActiveTab('Billings')}>Billings</li>
         </ul>
       </div>
-      <div className=' h-[500px]'>
+      <div className=' h-[500px]  rounded-xl'>
         {handleComponent()}
       </div>
     </div>

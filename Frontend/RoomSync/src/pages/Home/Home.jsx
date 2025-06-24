@@ -76,7 +76,7 @@ const Home = () => {
 
                 {/* Cards */}
                 <div className='flex flex-col lg:flex-row justify-center items-center gap-6 mt-10 px-4'>
-                    <div className="flex flex-col px-4 py-6 w-full max-w-md border-2 bg-white rounded-xl transition-all duration-200 space-y-3 bg-white hover:scale-105">
+                    <div className="flex flex-col px-4 py-6 w-full max-w-md border-2 bg-white rounded-xl transition-all duration-200 space-y-3 hover:scale-105">
                         <span className='text-[50px] bg-white'>🧠</span>
                         <h3 className='text-xl sm:text-2xl font-semibold bg-white'>AI-POWERED MATCHING</h3>
                         <p className='text-[#747a82] text-base sm:text-xl leading-relaxed bg-white'>

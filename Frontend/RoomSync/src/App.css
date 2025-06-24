@@ -6,9 +6,10 @@
   box-sizing: border-box;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: #f1f4f9;
+  
 }
 body{
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .Toastify__toast-container {
   top: 1rem !important;
