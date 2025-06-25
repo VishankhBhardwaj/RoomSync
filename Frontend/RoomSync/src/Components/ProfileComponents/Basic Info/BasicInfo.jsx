@@ -2,7 +2,7 @@ import React from 'react'
 
 const BasicInfo = () => {
   return (
-    <div className='w-full h-full flex flex-col md:flex-row md:justify-around p-8 gap-10 rounded-xl'>
+    <div className='w-full h-full flex flex-col md:flex-row md:justify-around p-8 gap-10 rounded-xl animate__animated animate__fadeInUp'>
       {/* profile-card */}
       <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-white space-y-6">
         <div className='w-full bg-white'>
@@ -17,8 +17,8 @@ const BasicInfo = () => {
           <p className='text-center bg-white text-gray-400'>🎂 24 years old</p>
           <p className='text-center bg-white text-gray-400'>✅ Verified Profile</p>
         </div>
-        <div className='bg-white md:w-full md:h-[12%]'>
-          <button className='w-full h-[80%] text-center shadow-md mx-auto bg-[#60a5fa] hover:bg-[#70aefa] rounded-xl text-white'>Change Photo</button>
+        <div className='bg-white md:w-full md:h-[10%] hover:shadow-2xl transition-all duration-300'>
+          <button className='w-full h-[100%] text-center shadow-md mx-auto bg-[#60a5fa] hover:bg-[#70aefa] rounded-xl text-white'>Change Photo</button>
         </div>
       </div>
 

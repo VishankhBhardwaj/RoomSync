@@ -2,7 +2,7 @@ import React from 'react'
 
 const Notifications = () => {
   return (
-    <div className='flex flex-col space-y-4 rounded-xl'>
+    <div className='flex flex-col space-y-4 rounded-xl animate__animated animate__fadeInUp'>
       <div className='w-[100%] md:h-[250px]  bg-white shadow-xl rounded-xl flex flex-col p-6 space-y-2'>
         <h1 className='text-2xl bg-white'>Email Notifications</h1>
         <div className="flex flex-col md:flex-row md:justify-between bg-white border-b-2 pb-5">

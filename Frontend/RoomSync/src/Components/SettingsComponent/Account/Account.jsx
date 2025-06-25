@@ -2,7 +2,7 @@ import React from 'react'
 
 const Account = () => {
   return (
-    <div className='flex flex-col space-y-10 rounded-xl'>
+    <div className='flex flex-col space-y-10 rounded-xl animate__animated animate__fadeInUp'>
       <div className=' w-[100%] md:h-[350px] p-6 space-y-2  shadow-xl rounded-xl bg-white'>
         <h1 className='text-2xl bg-white'>Account Information</h1>
         <div className='flex flex-col md:flex-row  md:justify-around bg-white'>

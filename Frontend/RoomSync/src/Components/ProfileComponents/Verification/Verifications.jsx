@@ -2,7 +2,7 @@ import React from 'react'
 import { IoCheckmarkDone } from "react-icons/io5";
 const Verifications = () => {
   return (
-    <div className=' max-h-screen p-3 rounded-xl'>
+    <div className=' max-h-screen p-3 rounded-xl animate__animated animate__fadeInUp'>
       <div className='  h-[300px] flex flex-col p-3 gap-3 rounded-xl bg-white shadow-xl'>
         <h1 className='text-2xl bg-white'>Identity Verification</h1>
         <div className="flex flex-row h-[60px] justify-between border-2 border-gray-200 p-3 rounded-xl bg-white">

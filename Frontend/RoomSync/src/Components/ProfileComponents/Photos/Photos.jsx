@@ -1,8 +1,8 @@
 import React from 'react'
-
+import 'animate.css';
 const Photos = () => {
   return (
-    <div className='max-h-screen min-w-screen p-5 rounded-xl'>
+    <div className='max-h-screen min-w-screen p-5 rounded-xl animate__animated animate__fadeInUp'>
       <div className='flex flex-col items-center gap-3 p-2 w-full h-full min-h-[100vh] md:min-h-0 md:h-[400px] bg-white rounded-xl lg:items-start lg:pl-10 shadow-xl'>
         <h1 className='text-xl bg-white md:ml-0'>Profile Photos</h1>
         <div className='flex flex-col md:flex-row items-center gap-3 md:gap-5 p-2 w-full h-full min-h-[100vh] md:min-h-0 md:h-[300px]  bg-white rounded-xl lg:items-start overflow-x-scroll'>

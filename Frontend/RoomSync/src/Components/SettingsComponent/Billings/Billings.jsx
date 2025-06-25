@@ -2,7 +2,7 @@ import React from 'react'
 
 const Billings = () => {
   return (
-    <div className='w-full h-full  flex flex-col gap-5 rounded-xl'>
+    <div className='w-full h-full  flex flex-col gap-5 rounded-xl animate__animated animate__fadeInUp'>
       {/* currentplan */}
         <div className='flex flex-col space-y-2 md:w-[100%] p-6 shadow-md rounded-md bg-white'>
           <div className='md:flex md:justify-between bg-white ml-[10px]'>

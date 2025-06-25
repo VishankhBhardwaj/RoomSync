@@ -4,10 +4,10 @@ const Preferences = () => {
   const [budget, setBudget] = useState(1200);
   
   return (
-    <div className="p-6 space-y-6 w-full flex flex-col items-center  min-h-screen rounded-xl">
+    <div className="p-6 space-y-6 w-full flex flex-col items-center  min-h-screen rounded-xl animate__animated animate__fadeInUp">
 
       {/* Top Section */}
-      <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl bg-white">
+      <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl bg-white rounded-xl">
 
         {/* Living Preferences */}
         <div className="bg-white p-6 rounded-xl shadow-sm w-full md:w-1/2 space-y-4">
