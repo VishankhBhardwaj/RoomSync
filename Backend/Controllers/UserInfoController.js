@@ -10,7 +10,7 @@ exports.userInfo = async (req, res) => {
     const { FirstName, LastName, Email, PhoneNumber, Occupation, DateOfBirth, Bio } = req.body;
 
     if (!PhoneNumber || !Occupation || !DateOfBirth || !Bio) {
-        return res.status(400).json({ msg: 'Please provide all details' }); // ✅ fixed typo: satus -> status
+        return res.status(400).json({ msg: 'Please provide all details' }); 
     }
 
     try {

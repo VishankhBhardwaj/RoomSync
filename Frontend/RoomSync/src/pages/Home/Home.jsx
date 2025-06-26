@@ -20,7 +20,7 @@ const Home = () => {
     };
 
     return (
-        <div className='w-full min-h-screen bg-white animate__animated animate__bounceInDown'>
+        <div className='w-full min-h-screen bg-white animate__animated animate__fadeInDown'>
             {/* Navbar */}
             <nav className='flex flex-col sm:flex-row justify-between items-center bg-[#f0f3f9] w-full px-4 sm:px-6 py-4 shadow-md sticky top-0'>
                 <Link className='font-bold text-2xl sm:text-3xl text-[#4f4864]' to="/">RoomSync</Link>

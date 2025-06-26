@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+
 const { registerUser, loginUser } = require('../Controllers/AuthController')
 const { userInfo } = require('../Controllers/UserInfoController');
 const express = require('express');
