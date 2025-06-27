@@ -17,8 +17,10 @@ body{
   left: auto !important;
   transform: none !important;
   z-index: 9999 !important;
+  background-color: white;
 }
 
 .Toastify__toast {
   text-align: left !important;
+  background-color: white;
 }
