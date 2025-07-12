@@ -1,7 +1,7 @@
 const UserPhotosModel = require("../models/UserPhotos");
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
-const {cloudinary,storage} =require("../Claudinary/index");
+const {cloudinary,storage} =require("../Cloudinary/index");
 exports.UserUploadedPhotos = [
     upload.single('file'),
     async function (req, res) {

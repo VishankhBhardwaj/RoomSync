@@ -59,7 +59,7 @@ const Dashboard = () => {
     }
   }
   return (
-    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__backInUp w-full ">
+    <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__fadeIn w-full ">
       {/* Sidebar */}
       <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-white shadow-md transition-all duration-200 hidden md:block`}>
         <div className='flex justify-around border-b-2 bg-white md:w-[100%] mt-[8px] pb-5'>
