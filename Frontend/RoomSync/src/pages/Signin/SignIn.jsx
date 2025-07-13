@@ -43,7 +43,7 @@ const SignIn = () => {
       <p className='text-[#6c6f7e] text-xl'>
         Sign up to your account to continue
       </p>
-      <div className=' flex flex-col px-6 py-3 space-y-2 border-2 shadow-xl w-[30%] h-[70%] rounded-xl'>
+      <div className=' flex flex-col lg:px-6 lg:py-3 lg:space-y-2 border-2 shadow-2xl lg:w-[30%] lg:h-[70%] rounded-xl  w-[95%] h-[80%] px-4 py-3 gap-2 md:h-[60%] md:gap-1'>
         <div className='mb-3'>
           <h1 className='text-2xl'>Sign In</h1>
           <p className='text-[#6c6f7e] text-xl'>Enter your credentials to access your account</p>

@@ -101,9 +101,9 @@ exports.EmailAuth = async (req, res) => {
     }
 }
 exports.userVerify = async (req, res) => {
-    // if (!req.user || !req.user._id) {
-    //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
-    // }
+    if (!req.user || !req.user._id) {
+        return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+    }
     const userId =req.user._id;
     let { Email, Phone, GovernmentId } = req.body;
     if (
