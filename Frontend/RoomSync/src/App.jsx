@@ -6,6 +6,7 @@ import './App.css'
 import Home from './pages/Home/Home'
 import SignIn from './pages/Signin/SignIn'
 import Dashboard from './pages/Dashboard/Dashboard'
+import Matches from './pages/Matches/Matches'
 import Register from './pages/Register/Register'
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
     element: (
       <div className="overflow-hidden h-screen">
         <Dashboard />
+      </div>
+    )
+  },
+  {
+    path: '/matches',
+    element: (
+      <div className="overflow-hidden h-screen">
+        <Matches />
       </div>
     )
   },
