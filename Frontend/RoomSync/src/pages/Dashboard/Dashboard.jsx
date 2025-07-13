@@ -44,7 +44,7 @@ const Dashboard = () => {
         );
       case "RoomMateHub":
         return <RoomMateHub />;
-      case "matches":
+      case "Matches":
         return <Matches />;
       case "Messages":
         return <Messages />

@@ -2,7 +2,7 @@ import React from 'react'
 
 const RoomMateHub = () => {
   return (
-    <div>RoomMateHub</div>
+    <div>RoomMateHfwfww23r23ub</div>
   )
 }
 
