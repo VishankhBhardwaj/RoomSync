@@ -1,5 +1,6 @@
 const userModel = require('../models/User');
 const jwt = require('jsonwebtoken');
+const UserPayment = require('../models/UserPayment');
 const bcrypt = require('bcrypt'); // ⬅️ You missed this!
 require('dotenv').config();
 const { sendOTP } = require('../Nodemailer/index');
@@ -29,10 +30,15 @@ exports.registerUser = async (req, res) => {
             Email,
             Password: hash,
         });
+        const data = new UserPayment({
+            user: user,
+            Subscription: false,
+            Date: new Date(),
+        })
+        await data.save();
+        await user.save();
 
-        const savedUser = await user.save();
-
-        const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });
 
@@ -40,18 +46,18 @@ exports.registerUser = async (req, res) => {
             msg: 'User registered successfully',
             token,
             user: {
-                id: savedUser._id,
-                FirstName: savedUser.FirstName,
-                LastName: savedUser.LastName,
-                Email: savedUser.Email,
+                id: user._id,
+                FirstName: user.FirstName,
+                LastName: user.LastName,
+                Email: user.Email,
             },
         });
     } catch (err) {
-        return res.status(500).json({ msg: 'Server error' });
+        return res.status(500).json({ msg: 'Server error', error: err });
     }
 };
 
-// LOGIN
+
 exports.loginUser = async (req, res) => {
     const { Email, Password } = req.body;
 
@@ -70,7 +76,7 @@ exports.loginUser = async (req, res) => {
             return res.status(401).json({ msg: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });
 
@@ -93,7 +99,7 @@ exports.EmailAuth = async (req, res) => {
     try {
         let { Email } = req.body;
         if (!Email) return res.status(400).json({ msg: "Email is required" });
-        const otp = Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
+        const otp = Math.floor(100000 + Math.random() * 900000);
         await sendOTP(Email, otp);
         res.status(200).json({ msg: "OTP sent successfully", otp });
     } catch (err) {
@@ -104,7 +110,7 @@ exports.userVerify = async (req, res) => {
     if (!req.user || !req.user._id) {
         return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
     }
-    const userId =req.user._id;
+    const userId = req.user._id;
     let { Email, Phone, GovernmentId } = req.body;
     if (
         typeof Email === "undefined" ||

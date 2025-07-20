@@ -9,7 +9,7 @@
   
 }
 body{
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .Toastify__toast-container {
   top: 1rem !important;

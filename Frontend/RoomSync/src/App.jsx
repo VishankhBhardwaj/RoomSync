@@ -8,46 +8,37 @@ import SignIn from './pages/Signin/SignIn'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Matches from './pages/Matches/Matches'
 import Register from './pages/Register/Register'
+import Chatbot from './Components/Chatbot/Chatbot'
+import Success from './pages/Payment/Success'
+import Cancelled from './pages/Payment/Cancelled'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <div className="overflow-auto h-screen">
-        <Home />
-      </div>
-    )
+    element: <Home />
   },
   {
     path: '/signin',
-    element: (
-      <div className="overflow-hidden h-screen">
-        <SignIn />
-      </div>
-    )
+    element: <SignIn />
   },
   {
     path: '/dashboard',
-    element: (
-      <div className="overflow-hidden h-screen">
-        <Dashboard />
-      </div>
-    )
+    element: <Dashboard />
   },
   {
     path: '/matches',
-    element: (
-      <div className="overflow-hidden h-screen">
-        <Matches />
-      </div>
-    )
+    element: <Matches />
   },
   {
     path: '/register',
-    element: (
-      <div className="overflow-hidden h-screen">
-        <Register />
-      </div>
-    )
+    element: <Register />
+  },
+  {
+    path:'/success',
+    element:<Success/>
+  },
+  {
+    path:'/cancel',
+    element:<Cancelled/>
   }
 ]);
 function App() {
@@ -56,6 +47,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <Chatbot/>
     </>
   )
 }

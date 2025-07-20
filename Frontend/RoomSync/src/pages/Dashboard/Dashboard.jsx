@@ -68,16 +68,17 @@ const Dashboard = () => {
             : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
         </div>
         <nav className="space-y-6 text-gray-700 bg-white p-6" >
-          <NavItem icon={'🏠'} label="Home" onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'📊'} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'🎯'} label="Matches" onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'💬'} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'📝'} label="Personality Quiz" onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'👤'} label="Profile" onClick={handleClick} isOpen={isOpen} />
-          <NavItem icon={'⚙️'} label="Settings" onClick={handleClick} isOpen={isOpen} />
+          <NavItem icon={'🏠'} label="Home" onClick={handleClick} isOpen={isOpen} active={activeTab === "Home"} />
+          <NavItem icon={'📊'} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} active={activeTab === "RoomMateHub"} />
+          <NavItem icon={'🎯'} label="Matches" onClick={handleClick} isOpen={isOpen} active={activeTab === "Matches"} />
+          <NavItem icon={'💬'} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen} active={activeTab === "Messages"} />
+          <NavItem icon={'📝'} label="Personality Quiz" onClick={handleClick} isOpen={isOpen} active={activeTab === "Personality Quiz"} />
+          <NavItem icon={'👤'} label="Profile" onClick={handleClick} isOpen={isOpen} active={activeTab === "Profile"} />
+          <NavItem icon={'⚙️'} label="Settings" onClick={handleClick} isOpen={isOpen} active={activeTab === "Settings"} />
+
         </nav>
       </aside>
-
+      
       {/* Main Content */}
       <div className='bg-[#f6f7f9] px-10px py-10px w-full sm:items-center'>
         {renderContent()}
@@ -88,14 +89,19 @@ const Dashboard = () => {
 
 // Sidebar nav item
 const NavItem = ({ icon, label, active = false, badge, onClick, isOpen }) => (
-  <div onClick={() => { onClick(label) }} className={`flex group items-center justify-between bg-white hover:bg-[#ebf4fe] p-2 rounded-lg cursor-pointer  ${active ? 'bg-gray-100 font-semibold' : ''}`}>
-    <div className={`flex items-center gap-3 bg-white group-hover:bg-[#ebf4fe]`}>
-      <span className='bg-white group-hover:bg-[#ebf4fe] text-center p-2'>{icon}</span>
-      <span className={`${isOpen ? '' : 'hidden'} bg-white group-hover:bg-[#ebf4fe] transition-all duration-200`}>{label}</span>
+  <div
+    onClick={() => { onClick(label) }}
+    className={`flex group items-center justify-between p-2 rounded-lg cursor-pointer transition-all duration-200
+      ${active ? 'bg-[#ebf4fe] font-semibold shadow-xl' : 'bg-white hover:bg-[#ebf4fe]'}
+    `}
+  >
+    <div className={`flex items-center gap-3 transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'}`}>
+      <span className={`transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'} text-center p-2`}>{icon}</span>
+      <span className={`${isOpen ? '' : 'hidden'} transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'}`}>{label}</span>
+      {badge && (
+        <span className="bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full transition-all duration-200">{badge}</span>
+      )}
     </div>
-    {badge && (
-      <span className="bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full">{badge}</span>
-    )}
   </div>
 );
 

@@ -5,9 +5,7 @@ const Privacy = () => {
     <div className='flex flex-col space-y-3 rounded-xl animate__animated animate__fadeInUp'>
        <div className='w-[100%] md:h-[180px] p-6 space-y-2 bg-white shadow-xl rounded-xl'>
         <h2 className='text-2xl font-semibold text-gray-800 bg-white'>Profile Visibility</h2>
-
         <div className='flex flex-col md:flex-row md:justify-between space-x-6 bg-white'>
-          {/* Language */}
           <div className='flex flex-col w-1/2 space-y-2 bg-white'>
             <label htmlFor='language' className='text-md text-gray-800 bg-white'>Who can see your profile</label>
             <select
@@ -20,8 +18,6 @@ const Privacy = () => {
               <option>Matches only</option>
             </select>
           </div>
-
-          {/* Time Zone */}
           <div className='flex flex-col w-1/2 space-y-2 bg-white'>
             <label htmlFor='timezone' className='text-md text-gray-800 bg-white'>Distance Visibility</label>
             <select

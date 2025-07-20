@@ -18,7 +18,7 @@ const Profile = () => {
   return (
     <div className='flex flex-col pr-2 pl-6 py-4 md:px-20 md:py-6 h-[100%] w-[100%]  space-y-3 overflow-y-scroll'>
       <div className='w-[300px] md:w-full'>
-        <h1 className='text-5xl'>👤 Profile</h1>
+        <h1 className='text-3xl'>👤 Profile</h1>
         <p className='text-2xl text-[#7a6f7e]'>Manage your profile information and preferences</p>
       </div>
       <div className='text-center bg-[#f3f4f6]  shadow-xl shadow-gray-300 rounded-xl   w-[100%] h-[10%]  md:h-[60px] flex items-center justify-around md:w-[100%]'>

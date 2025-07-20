@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Search, Filter as FilterIcon, ChevronDown } from "lucide-react"; 
 import MatchCard from "../../Components/MatchesComponents/MatchCard";
-
+import Chatbot from "../../Components/Chatbot/Chatbot";
 const Matches = () => {
-
+  
   const initialMatches = [
     {
       id: 1,
@@ -230,6 +230,7 @@ const Matches = () => {
           </p>
         )}
       </section>
+       <Chatbot />
     </div>
   );
 };

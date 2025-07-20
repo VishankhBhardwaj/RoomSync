@@ -5,8 +5,8 @@ exports.userPreferences = async (req, res) => {
         return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
     }
     const userId = req.user._id;
-    const { BudgetRange, PreferredLocation, MoveInDate, CleanlinessLevel, SocialLevel, LifeStyleTraits, Hobbies } = req.body;
-    if (!BudgetRange || !PreferredLocation || !MoveInDate || !CleanlinessLevel || !SocialLevel || !LifeStyleTraits || !Hobbies) {
+    const { budget, location, moveInDate, cleanliness, social, lifestyle, interest } = req.body;
+    if (!budget || !location || !moveInDate || !cleanliness || !social || !lifestyle || !interest) {
         return res.status(400).json({ msg: "please provide all details" });
     }
     else {
@@ -17,16 +17,16 @@ exports.userPreferences = async (req, res) => {
             } else {
                 const preferences = new userPreferencesModel({
                     user: userId,
-                    BudgetRange:BudgetRange,
-                    PreferredLocation:PreferredLocation,
-                    MoveInDate:MoveInDate,
-                    CleanlinessLevel:CleanlinessLevel,
-                    SocialLevel:SocialLevel,
-                    LifeStyleTraits:LifeStyleTraits,
-                    Hobbies:Hobbies
+                    BudgetRange: budget,
+                    PreferredLocation: location,
+                    MoveInDate: moveInDate,
+                    CleanlinessLevel: cleanliness,
+                    SocialLevel: social,
+                    LifeStyleTraits: lifestyle,
+                    Hobbies: interest
                 });
                 await preferences.save();
-                return res.status(200).json({ msg: "Data enetered successfully" });
+                return res.status(200).json({ msg: "Data entered successfully" });
             }
         } catch (err) {
             return res.status(500).json({
@@ -34,5 +34,24 @@ exports.userPreferences = async (req, res) => {
                 err: err.message || err
             });
         }
+    }
+}
+exports.showUserPreference = async (req, res) => {
+    // if (!req.user || !req.user._id) {
+    //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+    // }
+    try {
+        const data = await userPreferencesModel.find().populate('user','-Password');
+        if (!data) {
+            return res.status(404).json({ msg: "No preferences found" });
+        }
+        else {
+            return res.status(200).json(data);
+        }
+    }catch(err){
+        return res.status(500).json({
+            msg:"Server Error",
+            error:err
+        })
     }
 }

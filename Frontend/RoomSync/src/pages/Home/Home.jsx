@@ -3,20 +3,27 @@ import { Link, useNavigate } from 'react-router-dom'
 import CountUp from 'react-countup';
 import BlurText from "../../Components/Animations/BlurText";
 import { toast, ToastContainer } from 'react-toastify';
+import { useState,useEffect } from 'react';
 const Home = () => {
     const navigate = useNavigate();
+    const [loggedIn, setLoggedIn] = useState(false);
+    const token = localStorage.getItem('token');
+    useEffect(() => {
+        if (token) {
+            setLoggedIn(true);
+        }
+    }, [token]);
     const handleAnimationComplete = () => {
         console.log('Animation completed!');
     };
     const handleClick = () => {
-        const token=localStorage.token;
-        if(token){
+        if (token) {
+            setLoggedIn(true);
             navigate('/dashboard');
-        }else{
+        } else {
             toast.success("Please Login/Register first");
             navigate('/signin');
         }
-        
     };
 
     return (
@@ -25,10 +32,17 @@ const Home = () => {
             <nav className='flex flex-col sm:flex-row justify-between items-center bg-[#f0f3f9] w-full px-4 sm:px-6 py-4 shadow-md sticky top-0'>
                 <Link className='font-bold text-2xl sm:text-3xl text-[#4f4864]' to="/">RoomSync</Link>
                 <div className='flex flex-col sm:flex-row gap-2 mt-2 sm:mt-0'>
-                    <Link to="/signin" className="relative text-[#4f4864] text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group">
-                        Sign In
-                        <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
+                    {(loggedIn ? (
+                        <Link to="/" onClick={() => { localStorage.removeItem('token'); setLoggedIn(false) }} className="relative text-[#4f4864] text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group">
+                            Log Out
+                            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                    ) : (
+                        <Link to="/signin" className="relative text-[#4f4864] text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group">
+                            Sign In
+                            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                    ))}
                     <button className="w-full sm:w-[120px] h-10 bg-[#61a6fa] text-white rounded-md font-sans">
                         Get Started
                     </button>

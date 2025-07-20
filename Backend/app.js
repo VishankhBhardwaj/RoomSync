@@ -17,13 +17,21 @@ const userPrefRoute = require('./routes/Profile');
 const userPhotos = require("./routes/Profile");
 const userVerification = require("./routes/Auth");
 const userVerifyDataUpdate = require('./routes/Auth');
+const chatRoute = require('./routes/Chatbot');
+const data = require('./routes/Profile');
 // const userPhoneVerification = require("./routes/Auth");
 app.use('/api/auth',userRoute);
 app.use('/api/updateinfo',userInfoRoute);
+app.use('/api/userData',userInfoRoute);
+app.use('/api/payment',userInfoRoute);
 app.use('/api/updateUserPref',userPrefRoute);
+app.use('/api/Pref',userPrefRoute);
 app.use("/api/PhotosUploadedByUser",userPhotos);
 app.use('/api/verifyemail',userVerification);
 app.use('/api/userVerificationDataUpdate',userVerifyDataUpdate);
+app.use('/api/allData',data);
+app.use('/api/chat', chatRoute);
+
 // app.use('/api/verifyphone',userPhoneVerification);
 app.listen(PORT||5000,()=>{
     console.log("Server is running on port 3000");
