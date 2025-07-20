@@ -15,17 +15,22 @@ const BasicInfo = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('http://localhost:3000/api/userData/userInfo');
-        const data = res;
+        const token = localStorage.getItem('token');
+        const res = await axios.get('http://localhost:3000/api/userData/userInfo',{
+          headers:{
+            Authorization: `Bearer ${token}`
+          }
+        });
+        
         setUserData((prev) => ({
           ...prev,
-          FirstName: data.data.user.FirstName || '',
-          LastName: data.data.user.LastName || '',
-          Email: data.data.user.Email || '',
-          PhoneNumber:data.data.PhoneNumber || '',
-          DateOfBirth:data.data.DateOfBirth || '',
-          Occupation:data.data.Occupation || '',
-          Bio:data.data.Bio || ''
+          FirstName: res.data.user.FirstName || '',
+          LastName: res.data.user.LastName || '',
+          Email: res.data.user.Email || '',
+          PhoneNumber:res.data.PhoneNumber || '',
+          DateOfBirth:res.data.DateOfBirth || '',
+          Occupation:res.data.Occupation || '',
+          Bio:res.data.Bio || ''
         }));
       } catch (err) {
         toast.error("Failed to load user data");

@@ -1,6 +1,7 @@
 const userModel = require('../models/User');
 const jwt = require('jsonwebtoken');
 const UserPayment = require('../models/UserPayment');
+const UserInfo = require('../models/UserInfo');
 const bcrypt = require('bcrypt'); // ⬅️ You missed this!
 require('dotenv').config();
 const { sendOTP } = require('../Nodemailer/index');
@@ -35,6 +36,14 @@ exports.registerUser = async (req, res) => {
             Subscription: false,
             Date: new Date(),
         })
+        const userInfo = new UserInfo({
+            user: user._id,
+            PhoneNumber: null,
+            DateOfBirth: null,
+            Occupation: '',
+            Bio: ''
+        });
+        await userInfo.save();
         await data.save();
         await user.save();
 

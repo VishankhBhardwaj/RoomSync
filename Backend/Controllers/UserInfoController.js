@@ -3,11 +3,11 @@ const userModel = require('../models/User');
 const UserPayment = require('../models/UserPayment');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 exports.userInfo = async (req, res) => {
-    // if (!req.user || !req.user._id) {
-    //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
-    // }
-    const userId = '684d1d95c751c856c0c5fea3';
-
+    if (!req.user || !req.user._id) {
+        return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+    }
+    const userId = req.userId;
+    
     const { FirstName, LastName, Email, PhoneNumber, Occupation, DateOfBirth, Bio } = req.body;
     if (!PhoneNumber || !Occupation || !DateOfBirth || !Bio) {
         return res.status(400).json({ msg: 'Please provide all details' });
@@ -59,21 +59,23 @@ exports.userInfo = async (req, res) => {
     }
 };
 exports.userData = async (req, res) => {
-    // if (!req.user || !req.user._id) {
-    //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
-    // }
-    const userId = '687901c2cefc33a04685abaa';
+    if (!req.user || !req.user._id) {
+        return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+    }
+
+    const userId = req.user._id;
+
     try {
-        const data = await UserInfoModel.findById(userId, '-Password').populate('user', '-Password');
+        const data = await UserInfoModel.findOne({ user: userId}).populate('user','-Password');
         if (!data) {
-            return res.status(404).json({ msg: 'User not found' });
-        } else {
-            return res.status(200).json(data);
+            return res.status(404).json({ msg: 'UserInfo not found for this user' });
         }
+        return res.status(200).json(data);
     } catch (err) {
-        return res.status(500).json({ msg: "server down", error: err })
+        return res.status(500).json({ msg: "Server error", error: err.message });
     }
 }
+
 exports.checkout = async (req, res) => {
     try {
         const { priceId } = req.body;
@@ -116,10 +118,10 @@ exports.getSessionDetails = async (req, res) => {
             customer: session.customer,
             limit: 10,
         });
-         // if (!req.user || !req.user._id) {
-        //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
-        // }
-        const userId = '687901c2cefc33a04685abaa';
+         if (!req.user || !req.user._id) {
+            return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+        }
+        const userId = req.userId;
         const data = new UserPayment({
             user: userId,
             Subscription:true,
@@ -142,10 +144,10 @@ exports.getSessionDetails = async (req, res) => {
 
 exports.fetchPaymentInfo = async(req,res)=>{
     try{
-        // if (!req.user || !req.user._id) {
-    //     return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
-    // }
-    const userId = '687c92cf54d84589987440a6';
+        if (!req.user || !req.user._id) {
+        return res.status(401).json({ msg: 'Unauthorized: User not authenticated' });
+    }
+    const userId = req.userId;
     const data = await UserPayment.findById(userId).populate('user');
     return res.status(200).json(data);
     }catch(error){
