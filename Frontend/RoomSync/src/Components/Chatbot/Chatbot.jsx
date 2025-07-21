@@ -54,10 +54,10 @@ export default function Chatbot() {
       {/* Floating Button */}
       {!isOpen && (
         <button
-          className="bg-[#60a5fa] text-white rounded-full p-4 shadow-lg hover:bg-blue-700"
+          className="bg-[#1fadad] text-white rounded-full p-4 shadow-lg hover:bg-blue-700"
           onClick={() => setIsOpen(true)}
         >
-          <TbMessageChatbot className="bg-[#60a5fa]"/>
+          <TbMessageChatbot className="bg-[#1fadad]"/>
         </button>
       )}
 
@@ -65,8 +65,8 @@ export default function Chatbot() {
       {isOpen && (
         <div className="w-80 sm:w-96 h-[500px] bg-white rounded-xl shadow-2xl flex flex-col border border-gray-300 animate__animated animate__fadeIn">
           {/* Header */}
-          <div className="bg-[#60a5fa] text-white p-4 flex justify-between items-center">
-            <span className="font-semibold bg-[#60a5fa] text-black">RoomSync Chat</span>
+          <div className="bg-[#1fadad] text-white p-4 flex justify-between items-center">
+            <span className="font-semibold bg-[#1fadad] text-black">RoomSync Chat</span>
             <button
               className="text-white text-xl"
               onClick={() => setIsOpen(false)}

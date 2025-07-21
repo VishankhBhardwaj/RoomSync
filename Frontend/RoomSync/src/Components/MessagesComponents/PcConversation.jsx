@@ -38,11 +38,11 @@ const PcConversation = ({conversation}) => {
               </div>
             </div>
             <div className="flex gap-2 bg-white">
-              <button className="flex items-center bg-white gap-1 px-3 py-1 group bg-white border rounded-lg shadow-sm text-sm  hover:text-[#42abf4] hover:bg-[#d7e9fe] shadow-sm hover:shadow-xl transition-all duration-200">
-                <Video className="w-4 h-4 bg-white group-hover:text-[#42abf4]  group-hover:bg-[#d7e9fe] shadow-sm  group-hover:shadow-xl transition-all duration-200" /> Video Call
+              <button className="flex items-center bg-white gap-1 px-3 py-1 group bg-white border rounded-lg shadow-sm text-sm  hover:text-[#42abf4] hover:bg-[#1fadad] shadow-sm hover:shadow-xl transition-all duration-200">
+                <Video className="w-4 h-4 bg-white group-hover:text-[#42abf4]  group-hover:bg-[#1fadad] shadow-sm  group-hover:shadow-xl transition-all duration-200" /> Video Call
               </button>
-              <button className="flex bg-white items-center gap-1 px-3 py-1 group bg-white border rounded-lg shadow-sm text-sm  hover:text-[#42abf4] hover:bg-[#d7e9fe] shadow-sm hover:shadow-xl transition-all duration-200">
-                <Eye className="w-4 h-4 bg-white group-hover:text-[#42abf4]  group-hover:bg-[#d7e9fe] shadow-sm  group-hover:shadow-xl transition-all duration-200" /> View Profile
+              <button className="flex bg-white items-center gap-1 px-3 py-1 group bg-white border rounded-lg shadow-sm text-sm  hover:text-[#42abf4] hover:bg-[#1fadad] shadow-sm hover:shadow-xl transition-all duration-200">
+                <Eye className="w-4 h-4 bg-white group-hover:text-[#42abf4]  group-hover:bg-[#1fadad] shadow-sm  group-hover:shadow-xl transition-all duration-200" /> View Profile
               </button>
             </div>
           </div>

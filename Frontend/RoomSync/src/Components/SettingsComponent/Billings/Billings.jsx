@@ -70,7 +70,7 @@ const Billings = () => {
               </div>
               <div className=' h-[50%] md:h-[90%] md:w-[50%] p-2 flex flex-col md:gap-4 rounded-md bg-white'>
                 <h1 className='font-bold text-xl md:text-3xl bg-white'>Premium</h1>
-                <h1 className='text-xl bg-white'><span className='text-4xl text-[#61bafc] bg-white'>$9.99</span> per month</h1>
+                <h1 className='text-xl bg-white'><span className='text-4xl text-[#61bafc] bg-white'>$19.99</span> per month</h1>
                 <ul className=''>
                   <li className=' text-gray-500 bg-white'>✓ Unlimited Matches</li>
                   <li className=' text-gray-500 bg-white'>✓ Advanced filters</li>
@@ -93,12 +93,12 @@ const Billings = () => {
       <div className='flex flex-col space-y-2 md:w-[100%] p-6 shadow-md rounded-md bg-white'>
         <div className='md:flex md:justify-between bg-white ml-[10px]'>
           <h1 className='text-xl bg-white '>Current Plan</h1>
-          <span className='w-[100px] h-[23px] rounded-xl bg-[#80b8fb] text-white text-center'>{isSubscribed ? 'Premium' : 'Basic'}</span>
+          <span className='w-[100px] h-[23px] rounded-xl bg-[#5795a6] text-white text-center'>{isSubscribed ? 'Premium' : 'Basic'}</span>
         </div>
         <div className='flex flex-col  md:flex-row md:w-[100%] gap-4 p-6 bg-white'>
           <div className="flex flex-col gap-2 ml-[-15px] items-center justify-center md:w-[30%]  bg-white shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] rounded-md">
             <h1 className='text-xl bg-white'>{isSubscribed ? 'Premium' : 'Basic'}</h1>
-            <h1 className='text-[#61bafc] text-4xl bg-white'>{isSubscribed ? '19.99' : '0.00'}</h1>
+            <h1 className='text-[#61bafc] text-4xl bg-white'>{isSubscribed ? '$19.99' : '$0.00'}</h1>
             <p className='text-gray-500 bg-white'>per month</p>
           </div>
           <div className=" bg-white">
@@ -113,11 +113,11 @@ const Billings = () => {
           </div>
         </div>
         <div className='flex flex-col md:flex-row md:w-[100%] gap-5 bg-white '>
-          <button onClick={() => setPopUp(true)} className='md:w-[150px] md:h-[40px] rounded-xl bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200 hover:bg-[#d7e9fe] hover:text-[#054594]  text-gray-900 group hover:shadow-2xl'>
+          <button onClick={() => setPopUp(true)} className='md:w-[150px] md:h-[40px] rounded-xl bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200 hover:bg-[#1fadad] hover:text-[#054594]  text-gray-900 group hover:shadow-2xl'>
             Change Plan
           </button>
           {isSubscribed && (
-            <button className='md:w-[200px] md:h-[40px] rounded-xl bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200  hover:bg-[#d7e9fe] hover:text-[#054594] text-gray-900 group hover:shadow-2xl'>
+            <button className='md:w-[200px] md:h-[40px] rounded-xl bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200  hover:bg-[#1fadad] hover:text-[#054594] text-gray-900 group hover:shadow-2xl'>
               Cancel Subsciption
             </button>
           )}

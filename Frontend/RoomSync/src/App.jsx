@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import {createBrowserRouter,RouterProvider,Navigate} from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home/Home'
 import SignIn from './pages/Signin/SignIn'
@@ -11,7 +11,10 @@ import Register from './pages/Register/Register'
 import Chatbot from './Components/Chatbot/Chatbot'
 import Success from './pages/Payment/Success'
 import Cancelled from './pages/Payment/Cancelled'
-const router = createBrowserRouter([
+function App() {
+  const [count, setCount] = useState(0);
+  const token = localStorage.getItem("token");
+  const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
@@ -22,11 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard />
+    element: token?<Dashboard />:<Navigate to='/signin'/>
   },
   {
     path: '/matches',
-    element: <Matches />
+    element: token?<Matches />:<Navigate to='/signin'/>
   },
   {
     path: '/register',
@@ -34,16 +37,13 @@ const router = createBrowserRouter([
   },
   {
     path:'/success',
-    element:<Success/>
+    element:token?<Success/>:<Navigate to='/signin'/>
   },
   {
     path:'/cancel',
-    element:<Cancelled/>
+    element:token?<Cancelled/>:<Navigate to='/signin'/>
   }
 ]);
-function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <RouterProvider router={router} />

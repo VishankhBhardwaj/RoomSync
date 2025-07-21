@@ -45,9 +45,9 @@ const Preferences = () => {
   }
 
   return (
-    <div className="p-6 space-y-6 w-full flex flex-col items-center min-h-screen rounded-xl animate__animated animate__fadeInUp">
-      <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl bg-white rounded-xl">
-        <div className="bg-white p-6 rounded-xl shadow-sm w-full md:w-1/2 space-y-4">
+    <div className=" md:py-6 md:px-0 space-y-6 w-full flex flex-col items-center min-h-screen rounded-md animate__animated animate__fadeInUp ">
+      <div className="flex flex-col md:flex-row gap-6 w-full max-w-6xl bg-white rounded-md ">
+        <div className="bg-white p-6 rounded-md shadow-sm w-full md:w-1/2 space-y-4">
           <h2 className="text-lg font-semibold bg-white">Living Preferences</h2>
           <div className="bg-white">
             <label className="block mb-1 bg-white">
@@ -60,7 +60,7 @@ const Preferences = () => {
               name="budget"
               value={userPreferences.budget}
               onChange={handleChange}
-              className="w-full accent-[#70aefa] bg-white outline-[#6e9ed5]"
+              className="w-full accent-[#1fadad] bg-white outline-[#1fadad]"
             />
           </div>
 
@@ -70,7 +70,7 @@ const Preferences = () => {
               name="location"
               value={userPreferences.location}
               onChange={handleChange}
-              className="w-full outline-[#6e9ed5] p-2 h-10 rounded-xl border border-gray-200 bg-gradient-to-b from-white to-gray-100 shadow-inner text-gray-700"
+              className="w-full outline-[#1fadad] p-2 h-10 rounded-md border bg-white   from-white to-gray-100 shadow-inner text-gray-700"
             >
               <option value="">Select area</option>
               <option value="Downtown">Downtown</option>
@@ -86,13 +86,13 @@ const Preferences = () => {
                 name="moveInDate"
                 value={userPreferences.moveInDate}
                 onChange={handleChange}
-                className="w-full hover:bg-[#6e9ed5] hover:text-[#6e9ed5] outline-[#6e9ed5] p-2 h-10 rounded-xl border border-gray-200 bg-gradient-to-b from-white to-gray-100 shadow-inner text-gray-700 cursor-pointer transition-all"
+                className="w-full hover:bg-[#1fadad] hover:text-[#1fadad] outline-[#1fadad] p-2 h-10 rounded-md border border-gray-200 bg-white from-white to-gray-100 shadow-inner text-gray-700 cursor-pointer transition-all"
               />
             </div>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow-sm w-full md:w-1/2 space-y-4">
+        <div className="bg-white p-6 rounded-md shadow-sm w-full md:w-1/2 space-y-4">
           <h2 className="text-lg font-semibold bg-white">Lifestyle Preferences</h2>
 
           <div className="bg-white">
@@ -101,7 +101,7 @@ const Preferences = () => {
               name="cleanliness"
               value={userPreferences.cleanliness}
               onChange={handleChange}
-              className="w-full outline-[#6e9ed5] p-2 h-10 rounded-xl border border-gray-200 bg-gradient-to-b from-white to-gray-100 shadow-inner text-gray-700"
+              className="w-full outline-[#1fadad] p-2 h-10 rounded-md border border-gray-200 bg-white from-white to-gray-100 shadow-inner text-gray-700"
             >
               <option value="">Select cleanliness preference</option>
               <option value="Very Clean">Very Clean</option>
@@ -115,7 +115,7 @@ const Preferences = () => {
               name="social"
               value={userPreferences.social}
               onChange={handleChange}
-              className="w-full outline-[#6e9ed5] p-2 h-10 rounded-xl border border-gray-200 bg-gradient-to-b from-white to-gray-100 shadow-inner text-gray-700"
+              className="w-full outline-[#1fadad] p-2 h-10 rounded-md border border-gray-200 bg-white from-white to-gray-100 shadow-inner text-gray-700"
             >
               <option value="">Select social preference</option>
               <option value="Introvert">Introvert</option>
@@ -147,7 +147,7 @@ const Preferences = () => {
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-sm w-full max-w-5xl space-y-4">
+      <div className="bg-white p-6 rounded-md shadow-sm w-full max-w-6xl space-y-4">
         <h2 className="text-lg font-semibold bg-white">Interests & Hobbies</h2>
         <div className="flex flex-wrap gap-4 bg-white">
           {[
@@ -170,7 +170,7 @@ const Preferences = () => {
         </div>
 
         <button
-          className="mt-4 px-6 py-2 bg-[#70aefa] hover:bg-[#76aef2] text-white rounded-xl shadow-md"
+          className="mt-4 px-6 py-2 bg-[#1fadad] hover:bg-[#69d3d3] text-white rounded-md shadow-md"
           onClick={handleSave}
         >
           Save Preferences

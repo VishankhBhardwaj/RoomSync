@@ -38,7 +38,7 @@ const Photos = () => {
                 <span className="text-sm text-gray-500">Main Photo</span>
               )}
             </div>
-            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#c3daf4] hover:text-[#054d9b] transition-all duration-400'>{photos[0] ? "Change Photo" : "Upload Photo"}</button>
+            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#7bcfdc] hover:text-white transition-all duration-400'>{photos[0] ? "Change Photo" : "Upload Photo"}</button>
           </div>
           <div className='flex flex-col items-center p-2 gap-3 w-full min-w-[30%] h-[250px] bg-white rounded-xl [box-shadow:inset_0_6px_15px_rgba(0,0,0,0.05),inset_0_-6px_15px_rgba(0,0,0,0.05)]'>
             <div className='flex flex-row justify-center items-center w-[80%] h-[70%] bg-[#f3f4f6] text-gray-600 rounded-xl'>
@@ -52,7 +52,7 @@ const Photos = () => {
                 <span className="text-sm text-gray-500">Main Photo</span>
               )}
             </div>
-            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#c3daf4] hover:text-[#054d9b] transition-all duration-400'>{photos[1] ? "Change Photo" : "Upload Photo"}</button>
+            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#7bcfdc] hover:text-white transition-all duration-400'>{photos[1] ? "Change Photo" : "Upload Photo"}</button>
           </div>
           <div className='flex flex-col items-center p-2 gap-3 w-full min-w-[30%] h-[250px] bg-white rounded-xl [box-shadow:inset_0_6px_15px_rgba(0,0,0,0.05),inset_0_-6px_15px_rgba(0,0,0,0.05)]'>
             <div className='flex flex-row justify-center items-center w-[80%] h-[70%] bg-[#f3f4f6] text-gray-600 rounded-xl'>
@@ -66,7 +66,7 @@ const Photos = () => {
                 <span className="text-sm text-gray-500">Main Photo</span>
               )}
             </div>
-            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#c3daf4] hover:text-[#054d9b] transition-all duration-400'>{photos[2] ? "Change Photo" : "Upload Photo"}</button>
+            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#7bcfdc] hover:text-white transition-all duration-400'>{photos[2] ? "Change Photo" : "Upload Photo"}</button>
           </div>
           <div className='flex flex-col items-center p-2 gap-3 w-full min-w-[30%] h-[250px] bg-white rounded-xl [box-shadow:inset_0_6px_15px_rgba(0,0,0,0.05),inset_0_-6px_15px_rgba(0,0,0,0.05)]'>
             <div className='flex flex-row justify-center items-center w-[80%] h-[70%] bg-[#f3f4f6] text-gray-600 rounded-xl'>
@@ -80,7 +80,7 @@ const Photos = () => {
                 <span className="text-sm text-gray-500">Main Photo</span>
               )}
             </div>
-            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#c3daf4] hover:text-[#054d9b] transition-all duration-400'>{photos[3] ? "Change Photo" : "Upload Photo"}</button>
+            <button className='w-[80%] bg-[#f3f4f6] rounded-xl h-[20%] cursor-pointer hover:bg-[#7bcfdc] hover:text-white transition-all duration-400'>{photos[3] ? "Change Photo" : "Upload Photo"}</button>
           </div>
 
         </div>

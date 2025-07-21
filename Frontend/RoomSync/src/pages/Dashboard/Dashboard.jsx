@@ -10,6 +10,13 @@ import Profile from '../Profile/Profile';
 import Settings from '../Settings/Settings';
 import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
+import { FiHome } from "react-icons/fi";
+import { SlPeople } from "react-icons/sl";
+import { CiHeart } from "react-icons/ci";
+import { FiMessageSquare } from "react-icons/fi";
+import { CiUser } from "react-icons/ci";
+import { GoGear } from "react-icons/go";
+
 // npm install react-countup
 
 const Dashboard = () => {
@@ -63,22 +70,21 @@ const Dashboard = () => {
       {/* Sidebar */}
       <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-white shadow-md transition-all duration-200 hidden md:block`}>
         <div className='flex justify-around border-b-2 bg-white md:w-[100%] mt-[8px] pb-5'>
-          <h1 className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-blue-400 mb-8px mt-[8px] bg-white relative text-center`}>RoomSync</h1>
-          {isOpen ? <GoArrowLeft onClick={() => setIsOpen(!isOpen)} className='mb-[20px] bg-white  w-[50px] h-[25px] relative top-3 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200' />
-            : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#ebf4fe] hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
+          <h1 className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-[#007b8f] mb-8px mt-[8px] bg-white relative text-center`}>RoomSync</h1>
+          {isOpen ? <GoArrowLeft onClick={() => setIsOpen(!isOpen)} className='mb-[20px] bg-white  w-[50px] h-[25px] relative top-3 rounded-xl hover:bg-[#1FADAD] hover:text-[#3148a2] cursor-pointer transition-all duration-200' />
+            : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#1FADAD] hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
         </div>
         <nav className="space-y-6 text-gray-700 bg-white p-6" >
-          <NavItem icon={'🏠'} label="Home" onClick={handleClick} isOpen={isOpen} active={activeTab === "Home"} />
-          <NavItem icon={'📊'} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} active={activeTab === "RoomMateHub"} />
-          <NavItem icon={'🎯'} label="Matches" onClick={handleClick} isOpen={isOpen} active={activeTab === "Matches"} />
-          <NavItem icon={'💬'} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen} active={activeTab === "Messages"} />
-          <NavItem icon={'📝'} label="Personality Quiz" onClick={handleClick} isOpen={isOpen} active={activeTab === "Personality Quiz"} />
-          <NavItem icon={'👤'} label="Profile" onClick={handleClick} isOpen={isOpen} active={activeTab === "Profile"} />
-          <NavItem icon={'⚙️'} label="Settings" onClick={handleClick} isOpen={isOpen} active={activeTab === "Settings"} />
-
+          <NavItem icon={<FiHome className='bg-white'/>} label="Home" onClick={handleClick} isOpen={isOpen} active={activeTab === "Home"} />
+          <NavItem icon={<SlPeople className='bg-white'/>} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} active={activeTab === "RoomMateHub"} />
+          <NavItem icon={<CiHeart className='bg-white'/>} label="Matches" onClick={handleClick} isOpen={isOpen} active={activeTab === "Matches"} />
+          <NavItem icon={<FiMessageSquare className='bg-white'/>} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen} active={activeTab === "Messages"} />
+          <NavItem icon={<FaFileAlt className='bg-white'/>} label="Personality" onClick={handleClick} isOpen={isOpen} active={activeTab === "Personality"} />
+          <NavItem icon={<CiUser className='bg-white'/>} label="Profile" onClick={handleClick} isOpen={isOpen} active={activeTab === "Profile"} />
+          <NavItem icon={<GoGear className='bg-white'/>} label="Settings" onClick={handleClick} isOpen={isOpen} active={activeTab === "Settings"} />
         </nav>
       </aside>
-      
+
       {/* Main Content */}
       <div className='bg-[#f6f7f9] px-10px py-10px w-full sm:items-center'>
         {renderContent()}
@@ -92,12 +98,12 @@ const NavItem = ({ icon, label, active = false, badge, onClick, isOpen }) => (
   <div
     onClick={() => { onClick(label) }}
     className={`flex group items-center justify-between p-2 rounded-lg cursor-pointer transition-all duration-200
-      ${active ? 'bg-[#ebf4fe] font-semibold shadow-xl' : 'bg-white hover:bg-[#ebf4fe]'}
+      ${active ? 'bg-[#1FADAD] font-semibold shadow-xl' : 'bg-white hover:text-[#1FADAD]'}
     `}
   >
-    <div className={`flex items-center gap-3 transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'}`}>
-      <span className={`transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'} text-center p-2`}>{icon}</span>
-      <span className={`${isOpen ? '' : 'hidden'} transition-all duration-200 ${active ? 'bg-[#ebf4fe]' : 'bg-white group-hover:bg-[#ebf4fe]'}`}>{label}</span>
+    <div className={`flex items-center gap-3 transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'}`}>
+      <span className={`transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'} text-center text-xl p-2`}>{icon}</span>
+      <span className={`${isOpen ? '' : 'hidden'} transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'}`}>{label}</span>
       {badge && (
         <span className="bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full transition-all duration-200">{badge}</span>
       )}

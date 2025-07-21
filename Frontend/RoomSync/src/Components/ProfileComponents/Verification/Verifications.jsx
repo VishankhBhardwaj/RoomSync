@@ -65,8 +65,8 @@ const Verifications = () => {
                   setuserIsTryingToVerify(true);
                 }}
                 className={`w-[80px] text-md rounded-2xl transition-all duration-200
-    ${userIsTryingToVerify ? 'bg-[#d7e9fe] text-blue-500 shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
-    hover:bg-[#d7e9fe] hover:text-blue-500 hover:shadow-2xl`}
+    ${userIsTryingToVerify ? 'bg-[#1fadad] text-white shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
+    hover:bg-[#1fadad] hover:text-white hover:shadow-2xl`}
               >
                 Verify
               </button>}
@@ -80,8 +80,8 @@ const Verifications = () => {
           {
             isPhoneVerified ? <p className='text-md  w-[80px] text-center h-[30px] rounded-2xl bg-[#f0f2f4] text-gray-600'>verified</p> :
               <button onClick={() => { setuserIsTryingToVerify(false); setuserIsTryingToVerifyGovernId(false); setuserIsTryingToVerifyPhone(true); }} className={`w-[80px] text-md rounded-2xl transition-all duration-200
-    ${userIsTryingToVerifyPhone ? 'bg-[#d7e9fe] text-blue-500 shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
-    hover:bg-[#d7e9fe] hover:text-blue-500 hover:shadow-2xl`}
+    ${userIsTryingToVerifyPhone ? 'bg-[#1fadad] text-white shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
+    hover:bg-[#1fadad] hover:text-white hover:shadow-2xl`}
               >Verify</button>
           }
         </div>
@@ -94,8 +94,8 @@ const Verifications = () => {
           {
             isGovIdVerified ? <p className='text-md  w-[80px] text-center h-[30px] rounded-2xl bg-[#f0f2f4] text-gray-600'>verified</p> :
               <button onClick={() => { setuserIsTryingToVerify(false); setuserIsTryingToVerifyPhone(false); setuserIsTryingToVerifyGovernId(true) }} className={`w-[80px] text-md rounded-2xl transition-all duration-200
-    ${userIsTryingToVerifyGovernId ? 'bg-[#d7e9fe] text-blue-500 shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
-    hover:bg-[#d7e9fe] hover:text-blue-500 hover:shadow-2xl`}
+    ${userIsTryingToVerifyGovernId ? 'bg-[#1fadad] text-white shadow-2xl' : 'bg-[#f0f2f4] text-gray-600'}
+    hover:bg-[#1fadad] hover:text-white hover:shadow-2xl`}
               >Verify</button>
           }
         </div>

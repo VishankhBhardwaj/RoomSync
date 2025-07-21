@@ -59,8 +59,8 @@ const BasicInfo = () => {
   };
 
   return (
-    <div className='w-full h-full flex flex-col md:flex-row md:justify-around md:p-8 gap-10 rounded-xl animate__animated animate__fadeInUp'>
-      <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-white space-y-6">
+    <div className='w-full h-full flex flex-col md:flex-row md:justify-around md:py-8 md:px-0 gap-10 rounded-xl animate__animated animate__fadeInUp '>
+      <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-white space-y-6 ">
         <div className='w-full bg-white'>
           <img src="/myphoto.jpeg" alt="" className='w-[96px] h-[96px] rounded-full object-cover bg-white mx-auto' />
         </div>
@@ -68,7 +68,7 @@ const BasicInfo = () => {
           <h1 className='text-center bg-white text-xl'>
             {userData.FirstName} {userData.LastName}
           </h1>
-          <span className='text-center text-white bg-[#60a5fa] w-[60%] rounded-full block mx-auto text-sm'>
+          <span className='text-center text-white bg-[#1fadad] w-[60%] rounded-full block mx-auto text-sm'>
             Premium Member
           </span>
           <p className='text-center bg-white text-gray-400'>📍 San Francisco, CA</p>
@@ -78,7 +78,7 @@ const BasicInfo = () => {
           <p className='text-center bg-white text-gray-400'>✅ Verified Profile</p>
         </div>
         <div className='bg-white md:w-full md:h-[10%] hover:shadow-2xl transition-all duration-300'>
-          <button className='w-full h-[100%] text-center shadow-md mx-auto bg-[#60a5fa] hover:bg-[#70aefa] rounded-xl text-white'>Change Photo</button>
+          <button className='w-full h-[100%] text-center shadow-md mx-auto bg-[#1fadad] hover:bg-[#59d4d4] rounded-md text-white'>Change Photo</button>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ const BasicInfo = () => {
                   name="FirstName"
                   value={userData.FirstName}
                   onChange={handleChange}
-                  className='bg-gradient-to-b outline-blue-400 from-white to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-xl'
+                  className='bg-white outline-[#1fadad] from-white to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
                   placeholder='Jane'
                 />
               </div>
@@ -106,7 +106,7 @@ const BasicInfo = () => {
                   name="LastName"
                   value={userData.LastName}
                   onChange={handleChange}
-                  className='bg-gradient-to-b from-white outline-blue-400 to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-xl'
+                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
                   placeholder='Smith'
                 />
               </div>
@@ -120,7 +120,7 @@ const BasicInfo = () => {
                   name="Email"
                   value={userData.Email}
                   onChange={handleChange}
-                  className='bg-gradient-to-b from-white outline-blue-400 to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-xl'
+                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
                   placeholder='jane.smith@email.com'
                 />
               </div>
@@ -131,7 +131,7 @@ const BasicInfo = () => {
                   name="PhoneNumber"
                   value={userData.PhoneNumber}
                   onChange={handleChange}
-                  className='bg-gradient-to-b from-white outline-blue-400 to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-xl'
+                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
                   placeholder='+1 (555) 123-4567'
                 />
               </div>
@@ -145,8 +145,8 @@ const BasicInfo = () => {
                   name="DateOfBirth"
                   value={userData.DateOfBirth}
                   onChange={handleChange}
-                  className="bg-gradient-to-b from-white to-gray-100 text-gray-700 shadow-inner border border-gray-300 w-full h-10 p-2 rounded-xl cursor-pointer 
-                  hover:bg-[#6e9ed5] hover:text-[#6e9ed5] outline-blue-400 transition-colors duration-200"
+                  className="bg-white outline-[#1fadad] from-white to-gray-100 text-gray-700 shadow-inner border border-gray-300 w-full h-10 p-2 rounded-md cursor-pointer 
+                   hover:text-[#1fadad]  transition-colors duration-200"
                 />
               </div>
               <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
@@ -156,7 +156,7 @@ const BasicInfo = () => {
                   name="Occupation"
                   value={userData.Occupation}
                   onChange={handleChange}
-                  className='bg-gradient-to-b from-white outline-blue-400 to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-xl'
+                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
                   placeholder='Software Engineer'
                 />
               </div>
@@ -168,12 +168,12 @@ const BasicInfo = () => {
                 name="Bio"
                 value={userData.Bio}
                 onChange={handleChange}
-                className="w-full p-2 rounded-xl bg-gradient-to-b from-white outline-blue-400 to-gray-100 text-gray-700 shadow-inner border border-gray-200 placeholder-gray-400"
+                className="w-full p-2 rounded-xl  from-white bg-white outline-[#1fadad] to-gray-100 text-gray-700 shadow-inner border border-gray-200 placeholder-gray-400"
                 placeholder="I'm a software engineer who loves cooking, yoga, and exploring the city. Looking for a clean, respectful roommate to share a modern apartment with."
               ></textarea>
             </div>
             <button
-              className="mt-4 px-6 py-2 bg-[#70aefa] hover:bg-[#76aef2] text-white rounded-xl shadow-md"
+              className="mt-4 px-6 py-2 bg-[#1fadad] hover:bg-[#51b9b9] text-white rounded-md shadow-md"
               onClick={handleSubmit}
             >
               Update Information
