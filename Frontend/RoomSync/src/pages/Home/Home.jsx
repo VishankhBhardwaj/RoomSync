@@ -57,28 +57,28 @@ const Home = () => {
                     spinDuration={2}
                     hideDefaultCursor={true}
                 />
-                <nav className='flex flex-col sm:flex-row justify-between items-center bg-opacity-15 backdrop-blur-lg bg-transparent w-full px-4 sm:px-6 py-4 shadow-md sticky top-0 z-20'>
-                    <Link className='font-bold text-2xl sm:text-3xl text-[#4f4864]' to="/">RoomSync</Link>
+                <nav className='flex flex-col sm:flex-row justify-between items-center bg-white/15 backdrop-blur-xl  w-full px-4 sm:px-6 py-4 shadow-md sticky top-0 z-20'>
+                    <Link className='font-bold text-2xl sm:text-3xl text-black hover:text-[#61a6fa] transition-all duration-200' to="/">RoomSync</Link>
                     <div className='flex flex-col sm:flex-row gap-2 mt-2 sm:mt-0'>
                         {(loggedIn ? (
                             <Link
                                 to="/"
                                 onClick={() => { localStorage.removeItem('token'); setLoggedIn(false); }}
-                                className="relative text-[#4f4864] text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group bg-transparent"
+                                className="relative text-black  text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group bg-transparent"
                             >
                                 Log Out
-                                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
+                                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] hover:text-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         ) : (
                             <Link
                                 to="/signin"
-                                className="relative text-[#4f4864] text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group bg-transparent"
+                                className="relative text-black text-md py-2 px-4 hover:text-[#61a6fa] transition-colors duration-200 group bg-transparent"
                             >
                                 Sign In
                                 <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         ))}
-                        <button className="w-full sm:w-[120px] h-10 bg-[#61a6fa] text-white rounded-md font-sans">
+                        <button className="w-full sm:w-[120px] h-10 bg-[#500dc9] text-white rounded-md font-sans cursor-target">
                             Get Started
                         </button>
                     </div>
@@ -137,20 +137,20 @@ const Home = () => {
                     {/* CTA Buttons */}
                     <div className='flex flex-col sm:flex-row mt-8 w-full sm:w-[60%] bg-transparent space-y-4 sm:space-y-0 sm:space-x-6'>
                         <button
-                            className='bg-white text-black font-semibold w-full sm:w-[50%] h-12 rounded-full shadow-md transition-all duration-200 hover:scale-105'
+                            className='bg-white text-black font-semibold w-full sm:w-[50%] h-12 rounded-full shadow-md transition-all duration-200 hover:scale-105 cursor-target'
                             onClick={handleClick}>
                             Get Started
                         </button>
                         <ToastContainer />
                         <button
-                            className='backdrop-blur-xl bg-white/10 text-white font-semibold w-full sm:w-[50%] h-12 rounded-full border border-white/30 transition-all duration-200 hover:scale-105'>
+                            className='backdrop-blur-xl bg-white/10 text-white font-semibold w-full sm:w-[50%] h-12 rounded-full border border-white/30 transition-all duration-200 hover:scale-105 cursor-target'>
                             Learn More
                         </button>
                     </div>
 
                     {/* Feature Cards */}
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6 mt-10 px-4 bg-transparent'>
-                        <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+                        <SpotlightCard className="custom-spotlight-card cursor-target" spotlightColor="rgba(0, 229, 255, 0.2)">
                             <div className='p-2 items-center justify-center flex'>
                                 <span className='text-[50px] '><GiBrain className='text-white' /></span>
                             </div>
@@ -159,7 +159,7 @@ const Home = () => {
                                 Advanced algorithms analyze personality traits, lifestyle preferences, and compatibility factors.
                             </p>
                         </SpotlightCard>
-                        <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+                        <SpotlightCard className="custom-spotlight-card cursor-target" spotlightColor="rgba(0, 229, 255, 0.2)">
                             <div className='p-2 items-center justify-center flex'>
                                 <span className='text-[50px] '><IoIosChatboxes className='text-white' /></span>
                             </div>
@@ -169,7 +169,7 @@ const Home = () => {
                             </p>
                         </SpotlightCard>
 
-                        <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+                        <SpotlightCard className="custom-spotlight-card cursor-target" spotlightColor="rgba(0, 229, 255, 0.2)">
                             <div className='p-2 items-center justify-center flex'>
                                 <span className='text-[50px] '><TbLockStar className='text-white' /></span>
                             </div>
