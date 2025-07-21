@@ -10,7 +10,7 @@ cron.schedule("0 10 * * 1", async () => {
             subject: "🏠 Discover What’s New on RoomSync This Week!",
             html: `
     <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f6f6f6; color: #333;">
-      <h2 style="color: #2B4C67;">✨ Hey ${user.user.Name || 'there'},</h2>
+      <h2 style="color: #2B4C67;">✨ Hey ${user.user.FullName || 'there'},</h2>
       <p>Here’s what’s new on <strong>RoomSync</strong> this week – making your roommate journey smoother and smarter:</p>
       
       <ul style="line-height: 1.6;">
