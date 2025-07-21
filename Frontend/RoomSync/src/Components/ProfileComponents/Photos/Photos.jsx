@@ -7,7 +7,12 @@ const Photos = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const res = await axios.get('http://localhost:3000/api/PhotosUploadedByUser/photosData');
+        const token = localStorage.getItem('token');
+        const res = await axios.get('http://localhost:3000/api/PhotosUploadedByUser/photosData', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setPhotos(res.data.data.photos);
         console.log(res.data.data.photos)
       } catch (err) {

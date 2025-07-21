@@ -28,8 +28,15 @@ const Preferences = () => {
 
   async function handleSave(){
     try{
-      const res = await axios.post('http://localhost:3000/api/updateUserPref/userPreferences',
-        userPreferences
+      const token = localStorage.getItem('token');
+      const res = await axios.post(
+        'http://localhost:3000/api/updateUserPref/userPreferences',
+        userPreferences,
+        {
+          headers: {
+        Authorization: `Bearer ${token}`,
+          },
+        }
       );
       console.log(res.data);
     }catch(err){

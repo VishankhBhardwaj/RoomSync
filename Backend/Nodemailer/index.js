@@ -44,5 +44,12 @@ contact@roomsync.com<br>
 
     console.log("OTP email sent: %s", info.messageId);
 }
-
-module.exports = { sendOTP };
+const sendEmail = async ({ to, subject, html }) => {
+  await transporter.sendMail({
+    from: `"Your App Name" <${process.env.EMAIL}>`,
+    to,
+    subject,
+    html,
+  });
+};
+module.exports = { sendOTP,sendEmail };

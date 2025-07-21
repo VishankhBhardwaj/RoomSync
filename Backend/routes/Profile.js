@@ -2,9 +2,9 @@ const express = require('express');
 const {userPreferences,showUserPreference} = require('../Controllers/UserPreferencesController');
 const {UserUploadedPhotos,showUseruploadedPhotos} = require("../Controllers/UserPhotosController");
 const router = express.Router();
-
-router.post('/userPreferences',userPreferences);
-router.post('/Photos',UserUploadedPhotos);
-router.get('/showData',showUserPreference);
-router.get('/photosData',showUseruploadedPhotos);
+const {protectRoute} = require('../middlewares/Auth');
+router.post('/userPreferences',protectRoute,userPreferences);
+router.post('/Photos',protectRoute,UserUploadedPhotos);
+router.get('/showData',protectRoute,showUserPreference);
+router.get('/photosData',protectRoute,showUseruploadedPhotos);
 module.exports = router;

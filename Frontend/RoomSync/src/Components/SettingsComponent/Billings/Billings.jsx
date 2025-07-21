@@ -3,13 +3,19 @@ import React, { useEffect, useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 const Billings = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [invoice,setInvoice]=useState([]);
+  const [invoice, setInvoice] = useState([]);
   const [popUp, setPopUp] = useState(false);
   const stripePromise = loadStripe("pk_test_51Rmp0sB7hirLiPjmb1PGLJPAUxRrbvAeTudSzOMuWkz9Y94DrkO5Gpb3rkD2J9EGSz4OFqE0EKH04vSTnXYx9KNP00QvfuyH3Y");
+
   async function handleSubscribe() {
     const priceId = 'price_1Rmp6sB7hirLiPjmhOgBMTGO'
     try {
-      const res = await axios.post('http://localhost:3000/api/payment/create-checkout-session', { priceId })
+      const token = localStorage.getItem('token');
+      const res = await axios.post(
+        'http://localhost:3000/api/payment/create-checkout-session',
+        { priceId },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
       const stripe = await stripePromise;
       await stripe.redirectToCheckout({
         sessionId: res.data.sessionId,
@@ -18,15 +24,23 @@ const Billings = () => {
       console.log(error);
     }
   }
-  useEffect(()=>{
-    async function fetchInfo(){
-      const res = await axios.get('http://localhost:3000/api/payment/fetchPaymentInfo')
-      console.log(res.data);
-      setIsSubscribed(res.data.subscription);
-      setInvoice(res.data.Invoice);
-    }
-    fetchInfo()
-  },[])
+  useEffect(() => {
+  async function fetchInfo() {
+    const token = localStorage.getItem('token');
+    const res = await axios.get('http://localhost:3000/api/payment/fetchPaymentInfo', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    console.log(res.data);
+    if (res.data && res.data[0]?.Subscription) {
+      setInvoice(res.data[0].Invoice);
+      setIsSubscribed(true);
+    } else {
+      setIsSubscribed(false);
+    }  
+  }
+  fetchInfo();
+}, []);
+
   return (
     <div className='w-full h-full  flex flex-col gap-5 rounded-xl animate__animated animate__fadeInUp'>
       {popUp && (
@@ -48,10 +62,10 @@ const Billings = () => {
                   <li className=' text-gray-500 bg-white'>X Priority customer support'</li>
                 </ul>
 
-                {!isSubscribed ? <button onClick={() => handleSubscribe()} className="bg-black  hover:bg-zinc-700 transition-all duration-200 text-white font-semibold px-6 py-2 rounded-md mt-2">
-                  Select Plan
-                </button> : <button className="bg-white  text-black font-semibold px-6 py-2 rounded-md border border-gray-300 hover:bg-gray-300 transition-all duration-200">
+                {!isSubscribed ? <button className="bg-white  text-black font-semibold px-6 py-2 rounded-md border border-gray-300 hover:bg-gray-300 transition-all duration-200">
                   Current Plan
+                </button>:<button onClick={() => handleSubscribe()} className="bg-black  hover:bg-zinc-700 transition-all duration-200 text-white font-semibold px-6 py-2 rounded-md mt-2">
+                  Select Plan
                 </button>}
               </div>
               <div className=' h-[50%] md:h-[90%] md:w-[50%] p-2 flex flex-col md:gap-4 rounded-md bg-white'>
@@ -133,24 +147,24 @@ const Billings = () => {
 
         {invoice && invoice.length > 0 ? (
           invoice.map((item, idx) => (
-          <div key={idx} className=" flex flex-col md:flex-row md:justify-between items-center px-4 py-3 bg-white border rounded-xl shadow-sm">
-            <div className="flex flex-col md:flex-row space-x-2 text-gray-800 bg-white">
-              <span className="font-medium bg-white">{item.date}</span>
-              <span className="text-gray-500 bg-white">{item.plan}</span>
+            <div key={idx} className=" flex flex-col md:flex-row md:justify-between items-center px-4 py-3 bg-white border rounded-xl shadow-sm">
+              <div className="flex flex-col md:flex-row space-x-2 text-gray-800 bg-white">
+                <span className="font-medium bg-white">{item.date}</span>
+                <span className="text-gray-500 bg-white">{item.plan}</span>
+              </div>
+              <div className=" flex flex-col md:flex-row items-center space-x-4 bg-white">
+                <span className="text-gray-900 font-medium bg-white">{item.amount}</span>
+                <span className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">Paid</span>
+                <button className="relative text-blue-600 text-sm font-medium group focus:outline-none">
+                  <span className="relative z-10 bg-white">Download</span>
+                  <span
+                    className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 transition-all duration-500 group-hover:w-full"
+                    style={{ transitionProperty: 'width' }}
+                  ></span>
+                </button>
+              </div>
             </div>
-            <div className=" flex flex-col md:flex-row items-center space-x-4 bg-white">
-              <span className="text-gray-900 font-medium bg-white">{item.amount}</span>
-              <span className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">Paid</span>
-              <button className="relative text-blue-600 text-sm font-medium group focus:outline-none">
-                <span className="relative z-10 bg-white">Download</span>
-                <span
-                  className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 transition-all duration-500 group-hover:w-full"
-                  style={{ transitionProperty: 'width' }}
-                ></span>
-              </button>
-            </div>
-          </div>
-        ))
+          ))
         ) : (
           <div className='bg-white text-2xl'>No Billing History</div>
         )}

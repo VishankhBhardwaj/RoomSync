@@ -2,12 +2,17 @@ const userModel = require('../models/User');
 const jwt = require('jsonwebtoken');
 const UserPayment = require('../models/UserPayment');
 const UserInfo = require('../models/UserInfo');
-const bcrypt = require('bcrypt'); // ⬅️ You missed this!
-require('dotenv').config();
+const bcrypt = require('bcrypt'); 
+const userSettingsInfoModel = require('../models/UserSettings');
 const { sendOTP } = require('../Nodemailer/index');
 const UserVerificationModel = require('../models/UserVerification');
+
 // const {sendPhoneOTP} = require('../Twilio/index');
 // REGISTER
+
+require('dotenv').config();
+
+
 exports.registerUser = async (req, res) => {
 
     const { FirstName, LastName, Email, Password } = req.body;
@@ -43,9 +48,14 @@ exports.registerUser = async (req, res) => {
             Occupation: '',
             Bio: ''
         });
+        const userSettingsInfo = new userSettingsInfoModel({
+            user: user._id,
+            isMarketingOptedIn:false
+        })
         await userInfo.save();
         await data.save();
         await user.save();
+        await userSettingsInfo.save();
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '7d',

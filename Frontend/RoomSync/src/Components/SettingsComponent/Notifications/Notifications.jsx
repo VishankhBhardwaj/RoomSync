@@ -1,6 +1,41 @@
 import React from 'react'
-
+import { useState, useEffect } from 'react'
+import axios from "axios"
 const Notifications = () => {
+  const [isMarketingOptedIn, setIsMarketingOptIn] = useState(false);
+  const handleMarketing = async () => {
+    try {
+      const newStatus = !isMarketingOptedIn;
+      setIsMarketingOptIn(newStatus);
+      const token = localStorage.getItem("token");
+      const res = await axios.post('http://localhost:3000/api/userData/setMarketing', { newStatus }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.error("Error fetching marketing opt-in status:", error.message);
+    }
+  }
+
+  useEffect(() => {
+
+    async function fetchMarketingOptInStatus() {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await axios.get("http://localhost:3000/api/userData/marketing", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        setIsMarketingOptIn(res.data.isMarketingOptedIn);
+      } catch (error) {
+        console.error("Error fetching marketing opt-in status:", error.message);
+      }
+    }
+    fetchMarketingOptInStatus();
+  }, [])
   return (
     <div className='flex flex-col space-y-4 rounded-xl animate__animated animate__fadeInUp'>
       <div className='w-[100%] md:h-[250px]  bg-white shadow-xl rounded-xl flex flex-col p-6 space-y-2'>
@@ -20,7 +55,7 @@ const Notifications = () => {
             <p className='text-[#7b6f7e] bg-white'>Receive tips, updates, and promotional content</p>
           </div>
           <div className="group cursor-pointer px-2 py-2 rounded-xl md:h-[45px] w-[100px] text-center shadow-md transition-all duration-400 hover:bg-[#d7e9fe] hover:shadow-2xl">
-            <button className='w-[100%] hover:bg-[#d7e9fe] group-hover:shadow-2xl'>Deactivate</button>
+            <button onClick={() => handleMarketing()} className='w-[100%] hover:bg-[#d7e9fe] group-hover:shadow-2xl'>{isMarketingOptedIn ? "Deactivate" : "Activate"}</button>
           </div>
         </div>
       </div>

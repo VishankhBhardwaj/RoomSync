@@ -6,14 +6,21 @@ import { useSearchParams } from "react-router-dom";
 const Success = () => {
     const [searchParams] = useSearchParams();
     const sessionId = searchParams.get("session_id");
+    useEffect(()=>{
+        console.log(sessionId);
+    })
     if(sessionId){
         useEffect(()=>{
             async function getDetails(){
                 try{
-                    const res = await axios.post('http://localhost:3000/api/payment/get-session-details',{sessionId})
+                    const res = await axios.post('http://localhost:3000/api/payment/get-session-details', { sessionId }, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                        }
+                    })
                     console.log(res.data);
                 }catch(error){
-                    console.log(res.error.message || res.error)
+                    console.log(error.message || res.error)
                 }
             }
             getDetails();

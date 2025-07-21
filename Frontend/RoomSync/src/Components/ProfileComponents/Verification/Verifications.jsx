@@ -16,7 +16,10 @@ const Verifications = () => {
   const [userData, setuserData] = React.useState('');
   async function handleVerification() {
     try {
-      const res = await axios.post(API.verify.email, { Email: userData });
+      const token = localStorage.getItem('token');
+      const res = await axios.post(API.verify.email, { Email: userData }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
       toast.success("Success:", res.data.msg || res.data.message);
       setotpSent(true);
       setgeneratedOtp(res.data.otp);
