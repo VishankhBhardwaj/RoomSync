@@ -16,10 +16,10 @@ const Profile = () => {
     }
   }
   return (
-    <div className='flex flex-col pr-2 pl-6 py-4 md:px-20 md:py-6 h-[100%] w-[100%]  space-y-3 overflow-y-scroll'>
+    <div className='flex flex-col pr-2 pl-6 py-4 md:px-20 md:py-6 h-[100%] w-[100%]  space-y-3  bg-[#0f1625]'>
       <div className='w-[300px] md:w-full'>
-        <h1 className='text-3xl md:text-6xl flex flex-row gap-3'><CiUser className='text-3xl md:text-6xl'/> Profile</h1>
-        <p className='text-2xl text-[#7a6f7e]'>Manage your profile information and preferences</p>
+        <h1 className='text-3xl md:text-6xl text-white flex flex-row gap-3'><CiUser className='text-3xl md:text-6xl'/> Profile</h1>
+        <p className='text-2xl text-gray-600'>Manage your profile information and preferences</p>
       </div>
       <div className='text-center bg-[#e0f2f7] shadow-xl rounded-xl w-full flex items-center justify-around px-2 py-1 md:h-[45px]'>
         <ul className='flex flex-wrap justify-around w-full bg-[#e0f2f7]'>
@@ -38,7 +38,7 @@ const Profile = () => {
         </ul>
       </div>
 
-      <div className='md:h-[600px] '>
+      <div className='md:h-[600px] bg-[#0f1625]'>
         {handleComponent()}
       </div>
     </div>

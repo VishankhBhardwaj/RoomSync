@@ -37,7 +37,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='w-full min-h-screen flex flex-col justify-center items-center my-auto   space-y-3 animate__animated animate__backInLeft bg-black'>
+    <div className='w-full min-h-screen flex flex-col justify-center items-center my-auto   space-y-3 animate__animated animate__fadeIn bg-black'>
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
         <Orb hoverIntensity={1}
           rotateOnHover={true}
@@ -45,8 +45,8 @@ const SignIn = () => {
           forceHoverState={true} 
           />
       </div>
-      <div className='w-full h-screen flex flex-col justify-center items-center my-auto   space-y-3 animate__animated animate__backInLeft'>
-        <button onClick={handleClick} className='w-[200px] h-[50px] transition-all duration-200 text-white hover:bg-[#1fadad] hover:text-[#0545af] rounded-xl'>Back To Home</button>
+      <div className='w-full h-screen flex flex-col justify-center items-center my-auto   space-y-3 animate__animated animate__fadeIn'>
+        <button onClick={handleClick} className='w-[200px] h-[50px] transition-all duration-200 text-white hover:bg-[#500dc9] hover:text-white rounded-md'>Back To Home</button>
         <h1 className='text-3xl text-white'>Room Sync</h1>
         <h2 className='text-4xl text-white'>Welcome Back</h2>
         <p className='text-[#6c6f7e] text-xl'>
@@ -63,17 +63,17 @@ const SignIn = () => {
             onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder='Your@email.com'
-            className=' h-[50px] md:h-[60px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+            className=' h-[50px] md:h-[60px] px-3 rounded-md bg-[#f6f7f9] shadow-md outline-none' />
           <label htmlFor="" className='text-white'>Password</label>
           <input
             type={showPassword ? 'text' : 'password'}
             value={Password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder='••••••••'
-            className=' h-[50px] md:h-[60px] px-3 rounded-xl bg-[#f6f7f9] shadow-md' />
+            className=' h-[50px] md:h-[60px] px-3 rounded-md bg-[#f6f7f9] shadow-md outline-none' />
           <span
             onClick={togglePassword}
-            className="absolute right-[40px] top-[49.5%] transform -translate-y-1/2 cursor-pointer text-xl text-gray-500"
+            className="absolute right-[40px] top-[49.5%] transform -translate-y-1/2 cursor-pointer text-xl text-gray-500 transition-all duration-300"
           >
             {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
           </span>
@@ -84,7 +84,7 @@ const SignIn = () => {
             </div>
             <p className='text-[#70aefa] cursor-pointer transition-all duration-400 hover:underline decoration-[#70aefa] decoration-2 underline-offset-4'>Forgot Password?</p>
           </div>
-          <button className='w-[100%] bg-[#70aefa] hover:bg-[#7eb4f6] text-white h-[8%] md:h-[15%] rounded-xl shadow-md' onClick={handleSignIn}>Sign In</button>
+          <button className='w-[100%] bg-[#500dc9]  text-white h-[8%] md:h-[15%] rounded-md shadow-md' onClick={handleSignIn}>Sign In</button>
           <ToastContainer />
           <div className='w-[100%] flex justify-center items-center gap-2 mt-auto'>
             <p className='text-[#6c6f7e]'>Don't have an account?</p>
@@ -92,10 +92,10 @@ const SignIn = () => {
           </div>
           <p className='text-center text-[#6c6f7e]'>Or continue with</p>
           <div className='flex gap-2 justify-around mt-6px h-[9%]'>
-            <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#1fadad] h-[110%] rounded-xl shadow-2xl'>
+            <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#500dc9] h-[110%] rounded-md shadow-2xl'>
               Google
             </button>
-            <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#1fadad] h-[110%] rounded-xl shadow-2xl'>
+            <button className='w-[50%] bg-[#f6f7f9] transition-all duration-200 hover:bg-[#500dc9] h-[110%] rounded-md shadow-2xl'>
               Facebook
             </button>
           </div>

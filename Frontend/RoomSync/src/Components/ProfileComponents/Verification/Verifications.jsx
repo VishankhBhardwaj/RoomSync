@@ -48,8 +48,8 @@ const Verifications = () => {
   }
   return (
     <div className=' flex flex-col space-y-4 max-h-screen p-3 rounded-xl animate__animated animate__fadeInUp'>
-      <div className='  h-[300px] flex flex-col p-3 gap-3 rounded-xl bg-white shadow-xl'>
-        <h1 className='text-2xl bg-white'>Identity Verification</h1>
+      <div className='  h-[300px] flex flex-col p-3 gap-3 rounded-xl bg-[#1f2937] shadow-xl'>
+        <h1 className='text-2xl text-white'>Identity Verification</h1>
         <div className="flex flex-row h-[60px] justify-between border-2 border-gray-200 p-3 rounded-xl bg-white">
           <div className='flex flex-row gap-2 bg-white'>
             <IoCheckmarkDone className="text-green-500 text-3xl bg-white" />

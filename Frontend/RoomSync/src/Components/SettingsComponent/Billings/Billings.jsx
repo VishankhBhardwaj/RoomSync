@@ -90,30 +90,30 @@ const Billings = () => {
 
       )}
       {/* currentplan */}
-      <div className='flex flex-col space-y-2 md:w-[100%] p-6 shadow-md rounded-md bg-white'>
-        <div className='md:flex md:justify-between bg-white ml-[10px]'>
-          <h1 className='text-xl bg-white '>Current Plan</h1>
-          <span className='w-[100px] h-[23px] rounded-xl bg-[#5795a6] text-white text-center'>{isSubscribed ? 'Premium' : 'Basic'}</span>
+      <div className='flex flex-col space-y-2 md:w-[100%] p-6 shadow-md rounded-md bg-[#1f2937]'>
+        <div className='md:flex md:justify-between text-white ml-[10px]'>
+          <h1 className='text-xl '>Current Plan</h1>
+          <span className='w-[100px] h-[23px] rounded-xl bg-[#5e1d92] text-white text-center'>{isSubscribed ? 'Premium' : 'Basic'}</span>
         </div>
-        <div className='flex flex-col  md:flex-row md:w-[100%] gap-4 p-6 bg-white'>
+        <div className='flex flex-col  md:flex-row md:w-[100%] gap-4 p-6 '>
           <div className="flex flex-col gap-2 ml-[-15px] items-center justify-center md:w-[30%]  bg-white shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] rounded-md">
-            <h1 className='text-xl bg-white'>{isSubscribed ? 'Premium' : 'Basic'}</h1>
-            <h1 className='text-[#61bafc] text-4xl bg-white'>{isSubscribed ? '$19.99' : '$0.00'}</h1>
+            <h1 className='text-xl '>{isSubscribed ? 'Premium' : 'Basic'}</h1>
+            <h1 className='text-[#5e1d92] text-4xl bg-white'>{isSubscribed ? '$19.99' : '$0.00'}</h1>
             <p className='text-gray-500 bg-white'>per month</p>
           </div>
-          <div className=" bg-white">
-            <h1 className='bg-white'>Plan-Features</h1>
-            <ul className='bg-white'>
-              <li className='bg-white text-gray-500'>{isSubscribed ? '✓ Unlimited Matches' : 'X Unlimited Matches'}</li>
-              <li className='bg-white text-gray-500'>{isSubscribed ? '✓ Advanced filters' : 'X Advanced filters'}</li>
-              <li className='bg-white text-gray-500'>{isSubscribed ? '✓ See who liked you' : 'X See who liked you'}</li>
-              <li className='bg-white text-gray-500'>{isSubscribed ? '✓ Boost your profile' : 'X Boost your profile'}</li>
-              <li className='bg-white text-gray-500'>{isSubscribed ? '✓ Priority customer support' : 'X Priority customer support'}</li>
+          <div className=" ">
+            <h1 className='text-white'>Plan-Features</h1>
+            <ul className=''>
+              <li className=' text-gray-500'>{isSubscribed ? '✓ Unlimited Matches' : 'X Unlimited Matches'}</li>
+              <li className=' text-gray-500'>{isSubscribed ? '✓ Advanced filters' : 'X Advanced filters'}</li>
+              <li className=' text-gray-500'>{isSubscribed ? '✓ See who liked you' : 'X See who liked you'}</li>
+              <li className=' text-gray-500'>{isSubscribed ? '✓ Boost your profile' : 'X Boost your profile'}</li>
+              <li className=' text-gray-500'>{isSubscribed ? '✓ Priority customer support' : 'X Priority customer support'}</li>
             </ul>
           </div>
         </div>
-        <div className='flex flex-col md:flex-row md:w-[100%] gap-5 bg-white '>
-          <button onClick={() => setPopUp(true)} className='md:w-[150px] md:h-[40px] rounded-xl bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200 hover:bg-[#1fadad] hover:text-[#054594]  text-gray-900 group hover:shadow-2xl'>
+        <div className='flex flex-col md:flex-row md:w-[100%] gap-5'>
+          <button onClick={() => setPopUp(true)} className='md:w-[150px] md:h-[40px] rounded-md bg-[#f9fafb] shadow-xl shadow-gray-400/50 transition-all duration-200 hover:bg-[#5e1d92] hover:text-white  text-gray-900 group hover:shadow-2xl'>
             Change Plan
           </button>
           {isSubscribed && (
@@ -124,26 +124,26 @@ const Billings = () => {
         </div>
       </div>
       {/* payment */}
-      <div className=' flex flex-col space-y-2 md:w-[100%] md:h-[400px] p-6 shadow-md rounded-md bg-white'>
+      <div className=' flex flex-col space-y-2 md:w-[100%] md:h-[400px] p-6 shadow-md rounded-md bg-[#1f2937]'>
         <div>
-          <h1 className='md:text-2xl bg-white'>Payment Method</h1>
+          <h1 className='md:text-2xl text-white'>Payment Method</h1>
         </div>
-        <div className="flex items-center justify-between space-x-2 mb-1 bg-white">
-          <div className='bg-white'>
+        <div className="flex items-center justify-between space-x-2 mb-1 ">
+          <div className=''>
             <span className="text-xs  font-semibold text-white bg-blue-500 px-2 py-0.5 rounded-md  mr-[3px]">VISA</span>
-            <span className="tracking-widest text-gray-900 bg-white">•••• •••• •••• 4242</span>
+            <span className="tracking-widest text-white">•••• •••• •••• 4242</span>
           </div>
-          <div className='bg-white'>
-            <button className="px-4 shadow-xl shadow-gray-400/50 py-2  rounded-lg bg-gray-50 text-gray-900 text-sm font-medium  hover:bg-gray-100 transition-all duration-200 hover:shadow-2xl">
+          <div className=''>
+            <button className="px-4 shadow-xl shadow-gray-400/50 py-2  rounded-md bg-gray-50 text-gray-900 text-sm font-medium  hover:bg-gray-100 transition-all duration-200 hover:shadow-2xl">
               Edit
             </button>
           </div>
         </div>
-        <p className="text-md text-gray-500 bg-white ">Expires 12/2025</p>
+        <p className="text-md text-gray-500 ">Expires 12/2025</p>
       </div>
       {/* billing history */}
-      <div className="flex flex-col space-y-4 md:w-full p-6 shadow-md rounded-md bg-white">
-        <h1 className="text-2xl font-semibold text-gray-900 bg-white">Billing History</h1>
+      <div className="flex flex-col space-y-4 md:w-full p-6 shadow-md rounded-md bg-[#1f2937]">
+        <h1 className="text-2xl font-semibold text-white">Billing History</h1>
 
         {invoice && invoice.length > 0 ? (
           invoice.map((item, idx) => (
@@ -166,7 +166,7 @@ const Billings = () => {
             </div>
           ))
         ) : (
-          <div className='bg-white text-2xl'>No Billing History</div>
+          <div className=' text-2xl'>No Billing History</div>
         )}
       </div>
     </div>

@@ -33,7 +33,7 @@ const BasicInfo = () => {
           Bio:res.data.Bio || ''
         }));
       } catch (err) {
-        toast.error("Failed to load user data");
+        // toast.error("Failed to load user data");
         console.error(err.response?.data?.error || err.message);
       }
     }
@@ -59,116 +59,116 @@ const BasicInfo = () => {
   };
 
   return (
-    <div className='w-full h-full flex flex-col md:flex-row md:justify-around md:py-8 md:px-0 gap-10 rounded-xl animate__animated animate__fadeInUp '>
-      <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-white space-y-6 ">
-        <div className='w-full bg-white'>
-          <img src="/myphoto.jpeg" alt="" className='w-[96px] h-[96px] rounded-full object-cover bg-white mx-auto' />
+    <div className='w-full h-full flex flex-col md:flex-row md:justify-around md:py-8 md:px-0 gap-10 rounded-xl animate__animated animate__fadeInUp bg-[#0f1625]'>
+      <div className="flex flex-col md:w-[250px] items-center shadow-md p-3 rounded-xl bg-[#1f2937] space-y-6 ">
+        <div className='w-full bg-[#1f2937]'>
+          <img src="/myphoto.jpeg" alt="" className='w-[96px] h-[96px] rounded-full object-cover bg-[#1f2937] mx-auto' />
         </div>
-        <div className='text-center bg-white w-full flex flex-col gap-2'>
-          <h1 className='text-center bg-white text-xl'>
+        <div className='text-center bg-[#1f2937] w-full flex flex-col gap-2'>
+          <h1 className='text-center bg-[#1f2937] text-xl'>
             {userData.FirstName} {userData.LastName}
           </h1>
           <span className='text-center text-white bg-[#1fadad] w-[60%] rounded-full block mx-auto text-sm'>
             Premium Member
           </span>
-          <p className='text-center bg-white text-gray-400'>📍 San Francisco, CA</p>
-          <p className='text-center bg-white text-gray-400'>
+          <p className='text-center  text-gray-400'>📍 San Francisco, CA</p>
+          <p className='text-center  text-gray-400'>
             🎂 {userData.DateOfBirth ? new Date(userData.DateOfBirth).getFullYear() : ''} years old
           </p>
-          <p className='text-center bg-white text-gray-400'>✅ Verified Profile</p>
+          <p className='text-center  text-[#1fadad]'>✅ Verified Profile</p>
         </div>
-        <div className='bg-white md:w-full md:h-[10%] hover:shadow-2xl transition-all duration-300'>
-          <button className='w-full h-[100%] text-center shadow-md mx-auto bg-[#1fadad] hover:bg-[#59d4d4] rounded-md text-white'>Change Photo</button>
+        <div className=' md:w-full md:h-[10%] hover:shadow-2xl transition-all duration-300'>
+          <button className='w-full h-[100%] text-center shadow-md mx-auto bg-[#5b1c8e] hover:bg-[#a257e0] rounded-md text-white transition-all duration-200'>Change Photo</button>
         </div>
       </div>
 
-      <div className="flex flex-col md:w-[70%] md:h-full rounded-xl shadow-md bg-white gap-4 p-7">
-        <h1 className='bg-white text-xl'>Basic Information</h1>
-        <div className='p-1 bg-white'>
-          <div className='flex flex-col gap-3 bg-white'>
+      <div className="flex flex-col md:w-[70%] md:h-full rounded-xl shadow-md bg-[#1f2937] gap-4 p-7">
+        <h1 className=' text-xl text-white'>Basic Information</h1>
+        <div className='p-1 bg-[#1f2937]'>
+          <div className='flex flex-col gap-3 '>
 
-            <div className='flex flex-col md:flex-row w-full gap-2 bg-white'>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>First Name</label>
+            <div className='flex flex-col md:flex-row w-full gap-2 '>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>First Name</label>
                 <input
                   type="text"
                   name="FirstName"
                   value={userData.FirstName}
                   onChange={handleChange}
-                  className='bg-white outline-[#1fadad] from-white to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
+                  className=' outline-[#611d98]  bg-[#374151] text-white shadow-inner  w-full h-10 p-2 rounded-md'
                   placeholder='Jane'
                 />
               </div>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>Last Name</label>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>Last Name</label>
                 <input
                   type="text"
                   name="LastName"
                   value={userData.LastName}
                   onChange={handleChange}
-                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
+                  className=' outline-[#611d98] bg-[#374151] text-white shadow-inner  w-full h-10 p-2 rounded-md'
                   placeholder='Smith'
                 />
               </div>
             </div>
 
-            <div className='flex flex-col md:flex-row w-full gap-2 bg-white'>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>Email</label>
+            <div className='flex flex-col md:flex-row w-full gap-2 '>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>Email</label>
                 <input
                   type="text"
                   name="Email"
                   value={userData.Email}
                   onChange={handleChange}
-                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
+                  className=' outline-[#611d98]  bg-[#374151] text-white shadow-inner  w-full h-10 p-2 rounded-md'
                   placeholder='jane.smith@email.com'
                 />
               </div>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>Phone</label>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>Phone</label>
                 <input
                   type="text"
                   name="PhoneNumber"
                   value={userData.PhoneNumber}
                   onChange={handleChange}
-                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
+                  className=' outline-[#611d98]  bg-[#374151] text-white shadow-inner  w-full h-10 p-2 rounded-md'
                   placeholder='+1 (555) 123-4567'
                 />
               </div>
             </div>
 
-            <div className='flex flex-col md:flex-row w-full gap-2 bg-white'>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>Date of Birth</label>
+            <div className='flex flex-col md:flex-row w-full gap-2 '>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>Date of Birth</label>
                 <input
                   type="date"
                   name="DateOfBirth"
                   value={userData.DateOfBirth}
                   onChange={handleChange}
-                  className="bg-white outline-[#1fadad] from-white to-gray-100 text-gray-700 shadow-inner border border-gray-300 w-full h-10 p-2 rounded-md cursor-pointer 
+                  className=" outline-[#611d98] bg-[#374151] text-white  shadow-inner  w-full h-10 p-2 rounded-md cursor-pointer 
                    hover:text-[#1fadad]  transition-colors duration-200"
                 />
               </div>
-              <div className='flex flex-col w-full md:w-[50%] gap-2 bg-white'>
-                <label className='bg-white'>Occupation</label>
+              <div className='flex flex-col w-full md:w-[50%] gap-2 '>
+                <label className='text-[#88a3af]'>Occupation</label>
                 <input
                   type="text"
                   name="Occupation"
                   value={userData.Occupation}
                   onChange={handleChange}
-                  className='bg-white outline-[#1fadad] from-white  to-gray-100 text-gray-700 shadow-inner border border-gray-200 w-full h-10 p-2 rounded-md'
+                  className=' outline-[#611d98]  bg-[#374151] text-white shadow-inner  w-full h-10 p-2 rounded-md'
                   placeholder='Software Engineer'
                 />
               </div>
             </div>
 
-            <div className='bg-white w-full'>
-              <h1 className='bg-white'>Bio</h1>
+            <div className=' w-full'>
+              <h1 className='text-[#88a3af]'>Bio</h1>
               <textarea
                 name="Bio"
                 value={userData.Bio}
                 onChange={handleChange}
-                className="w-full p-2 rounded-xl  from-white bg-white outline-[#1fadad] to-gray-100 text-gray-700 shadow-inner border border-gray-200 placeholder-gray-400"
+                className="w-full p-2 rounded-md bg-[#374151] text-white   outline-[#611d98]   shadow-inner  placeholder-gray-400"
                 placeholder="I'm a software engineer who loves cooking, yoga, and exploring the city. Looking for a clean, respectful roommate to share a modern apartment with."
               ></textarea>
             </div>

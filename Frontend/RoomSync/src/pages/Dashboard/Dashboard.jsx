@@ -68,13 +68,13 @@ const Dashboard = () => {
   return (
     <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__fadeIn w-full ">
       {/* Sidebar */}
-      <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-white shadow-md transition-all duration-200 hidden md:block`}>
-        <div className='flex justify-around border-b-2 bg-white md:w-[100%] mt-[8px] pb-5'>
-          <h1 className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-[#007b8f] mb-8px mt-[8px] bg-white relative text-center`}>RoomSync</h1>
-          {isOpen ? <GoArrowLeft onClick={() => setIsOpen(!isOpen)} className='mb-[20px] bg-white  w-[50px] h-[25px] relative top-3 rounded-xl hover:bg-[#1FADAD] hover:text-[#3148a2] cursor-pointer transition-all duration-200' />
-            : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-white  w-[50px] h-[25px] relative top-1 rounded-xl hover:bg-[#1FADAD] hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
+      <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-[#111827] shadow-md transition-all duration-200 hidden md:block`}>
+        <div className='flex justify-around border-b-2 bg-[#111827] md:w-[100%] mt-[8px] pb-5'>
+          <h1 className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-[#717ef4] mb-8px mt-[8px] bg-[#111827] relative text-center`}>RoomSync</h1>
+          {isOpen ? <GoArrowLeft onClick={() => setIsOpen(!isOpen)} className='mb-[20px] bg-[#111827]  w-[50px] h-[25px] relative top-3 rounded-xl text-white hover:text-[#3148a2] cursor-pointer transition-all duration-200' />
+            : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-[#111827]  w-[50px] h-[25px] relative top-1 rounded-xl text-white hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
         </div>
-        <nav className="space-y-6 text-gray-700 bg-white p-6" >
+        <nav className="space-y-6 text-gray-700 bg-[#111827] p-6" >
           <NavItem icon={<FiHome className='bg-white'/>} label="Home" onClick={handleClick} isOpen={isOpen} active={activeTab === "Home"} />
           <NavItem icon={<SlPeople className='bg-white'/>} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} active={activeTab === "RoomMateHub"} />
           <NavItem icon={<CiHeart className='bg-white'/>} label="Matches" onClick={handleClick} isOpen={isOpen} active={activeTab === "Matches"} />
@@ -98,12 +98,12 @@ const NavItem = ({ icon, label, active = false, badge, onClick, isOpen }) => (
   <div
     onClick={() => { onClick(label) }}
     className={`flex group items-center justify-between p-2 rounded-lg cursor-pointer transition-all duration-200
-      ${active ? 'bg-[#1FADAD] font-semibold shadow-xl' : 'bg-white hover:text-[#1FADAD]'}
+      ${active ? 'bg-[#271944] font-semibold shadow-xl' : ' hover:bg-[#1f2937]'}
     `}
   >
-    <div className={`flex items-center gap-3 transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'}`}>
-      <span className={`transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'} text-center text-xl p-2`}>{icon}</span>
-      <span className={`${isOpen ? '' : 'hidden'} transition-all duration-200 ${active ? 'bg-[#1FADAD]' : 'bg-white group-hover:text-[#1FADAD]'}`}>{label}</span>
+    <div className={`flex items-center gap-3 transition-all duration-200 ${active ? 'bg-[#271944]' : ' group-hover:bg-[#1f2937]'}`}>
+      <span className={`transition-all duration-200 ${active ? 'bg-[#271944]' : ' group-hover:text-[#1FADAD]'} text-center text-xl p-2`}>{icon}</span>
+      <span className={`${isOpen ? '' : 'hidden'} transition-all duration-200 ${active ? 'bg-[#271944] text-white' : ' text-[#afd5db]'}`}>{label}</span>
       {badge && (
         <span className="bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full transition-all duration-200">{badge}</span>
       )}

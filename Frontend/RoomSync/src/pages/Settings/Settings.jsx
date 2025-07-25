@@ -18,13 +18,12 @@ const Settings = () => {
   }
 
   return (
-    <div className='flex flex-col px-6 md:px-16 lg:px-20 py-6 h-full w-full space-y-6 overflow-y-auto'>
+    <div className='flex flex-col px-6 md:px-16 lg:px-20 py-6 h-full w-full space-y-6  bg-[#0f1625]'>
       <div>
-        <h1 className='text-3xl md:text-6xl lg:text-5xl font-semibold flex flex-row gap-3 '><GoGear className='text-3xl md:text-6xl'/> Settings</h1>
-        <p className='text-base md:text-xl text-[#7a6f7e]'>Manage your account preferences and privacy settings</p>
+        <h1 className='text-3xl md:text-6xl lg:text-5xl font-semibold flex flex-row gap-3 text-white'><GoGear className='text-3xl md:text-6xl text-white'/> Settings</h1>
+        <p className='text-base md:text-xl text-gray-600'>Manage your account preferences and privacy settings</p>
       </div>
       
-
       <div className='text-center bg-[#e0f2f7] shadow-xl rounded-xl w-full flex items-center justify-around px-2 py-1 md:h-[45px]'>
         <ul className='flex flex-wrap justify-around w-full bg-[#e0f2f7]'>
           {['Account', 'Notifications', 'Privacy', 'Billings'].map((tab) => (
@@ -41,7 +40,7 @@ const Settings = () => {
           ))}
         </ul>
       </div>
-      <div className='w-full max-h-[600px] overflow-y-auto rounded-xl'>
+      <div className='w-full max-h-[600px] overflow-y-auto rounded-xl scrollbar-hide'>
         {handleComponent()}
       </div>
     </div>

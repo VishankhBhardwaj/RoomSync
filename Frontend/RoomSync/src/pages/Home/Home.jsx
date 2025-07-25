@@ -132,9 +132,6 @@ const Home = () => {
                             />
                         </div>
                     </div>
-
-
-                    {/* CTA Buttons */}
                     <div className='flex flex-col sm:flex-row mt-8 w-full sm:w-[60%] bg-transparent space-y-4 sm:space-y-0 sm:space-x-6'>
                         <button
                             className='bg-white text-black font-semibold w-full sm:w-[50%] h-12 rounded-full shadow-md transition-all duration-200 hover:scale-105 cursor-target'
@@ -147,8 +144,6 @@ const Home = () => {
                             Learn More
                         </button>
                     </div>
-
-                    {/* Feature Cards */}
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6 mt-10 px-4 bg-transparent'>
                         <SpotlightCard className="custom-spotlight-card cursor-target" spotlightColor="rgba(0, 229, 255, 0.2)">
                             <div className='p-2 items-center justify-center flex'>
