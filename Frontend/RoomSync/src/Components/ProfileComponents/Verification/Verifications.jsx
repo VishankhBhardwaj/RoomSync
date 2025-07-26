@@ -50,10 +50,10 @@ const Verifications = () => {
     <div className=' flex flex-col space-y-4 max-h-screen p-3 rounded-xl animate__animated animate__fadeInUp'>
       <div className='  h-[300px] flex flex-col p-3 gap-3 rounded-xl bg-[#1f2937] shadow-xl'>
         <h1 className='text-2xl text-white'>Identity Verification</h1>
-        <div className="flex flex-row h-[60px] justify-between border-2 border-gray-200 p-3 rounded-xl bg-white">
-          <div className='flex flex-row gap-2 bg-white'>
-            <IoCheckmarkDone className="text-green-500 text-3xl bg-white" />
-            <p className='text-xl bg-white text-slate-700'>Email Verified
+        <div className="flex flex-row h-[60px] justify-between border border-[#818cf8]  p-3 rounded-xl bg-[#2a3139]">
+          <div className='flex flex-row gap-2 '>
+            <IoCheckmarkDone className="text-green-500 text-3xl" />
+            <p className='text-xl  text-white'>Email Verified
             </p>
           </div>
           {
@@ -71,10 +71,10 @@ const Verifications = () => {
                 Verify
               </button>}
         </div>
-        <div className="flex flex-row h-[60px] justify-between border-2 border-gray-200 p-3 rounded-xl bg-white">
-          <div className='flex flex-row gap-2 bg-white'>
-            <IoCheckmarkDone className="text-green-500 text-3xl bg-white" />
-            <p className='text-xl bg-white text-slate-700'>Phone Verified
+        <div className="flex flex-row h-[60px] justify-between border border-[#818cf8] p-3 rounded-xl bg-[#2a3139]">
+          <div className='flex flex-row gap-2 '>
+            <IoCheckmarkDone className="text-green-500 text-3xl " />
+            <p className='text-xl  text-white'>Phone Verified
             </p>
           </div>
           {
@@ -85,10 +85,10 @@ const Verifications = () => {
               >Verify</button>
           }
         </div>
-        <div className="flex flex-row h-[60px] justify-between border-2 border-gray-200 p-3 rounded-xl bg-white">
-          <div className='flex flex-row gap-2 bg-white'>
-            <IoCheckmarkDone className="text-green-500 text-3xl bg-white" />
-            <p className='text-xl bg-white text-slate-700'>Government Id
+        <div className="flex flex-row h-[60px] justify-between border border-[#818cf8] p-3 rounded-xl bg-[#2a3139]">
+          <div className='flex flex-row gap-2 '>
+            <IoCheckmarkDone className="text-green-500 text-3xl " />
+            <p className='text-xl  text-white'>Government Id
             </p>
           </div>
           {
@@ -102,8 +102,8 @@ const Verifications = () => {
       </div>
       {
         userIsTryingToVerify ? (
-          <div className='animate__animated animate__fadeIn  h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-white shadow-xl'>
-            <label htmlFor="email" className="text-md font-medium text-gray-700 bg-white">
+          <div className='animate__animated animate__fadeIn  h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-[#1f2937] shadow-xl'>
+            <label htmlFor="email" className="text-md font-medium text-white">
               Enter your email to verify:
             </label>
             {
@@ -113,14 +113,14 @@ const Verifications = () => {
                 type="text"
                 id="otp"
                 placeholder="One-Time-Password"
-                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-3 py-2 bg-[#374151] text-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#818cf8]"
               /> : <input
                 value={userData}
                 onChange={(e) => setuserData(e.target.value)}
                 type="email"
                 id="email"
                 placeholder="you@example.com"
-                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-3 py-2 bg-[#374151] text-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#818cf8]"
               />
             }
             {otpSent ? (
@@ -128,7 +128,7 @@ const Verifications = () => {
                 <button
                   onClick={handleOtpVerification}
                   type="button"
-                  className="mt-auto bg-black  hover:bg-green-600 text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200 "
+                  className="mt-auto bg-black  hover:bg-[#818cf8] text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200 "
                 >
                   Verify Otp
                 </button>
@@ -139,7 +139,7 @@ const Verifications = () => {
                 <button
                   onClick={handleVerification}
                   type="button"
-                  className="mt-auto bg-black  hover:bg-green-600 text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200 "
+                  className="mt-auto bg-black  hover:bg-[#4952a1] text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200 "
                 >
                   Verify Email
                 </button>
@@ -151,8 +151,8 @@ const Verifications = () => {
       }
       {
         userIsTryingToVerifyPhone ? (
-          <div className='animate__animated animate__fadeIn h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-white shadow-xl'>
-            <label htmlFor="phone" className="text-md font-medium text-gray-700 bg-white">
+          <div className='animate__animated animate__fadeIn h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-[#1f2937] shadow-xl'>
+            <label htmlFor="phone" className="text-md font-medium  text-white">
               Enter your phone number to verify:
             </label>
             <input
@@ -161,11 +161,11 @@ const Verifications = () => {
               type="tel"
               id="phone"
               placeholder="e.g. +91 9876543210"
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="px-3 py-2 bg-[#374151] text-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#818cf8]"
             />
             <button onClick={handleVerification}
               type="button"
-              className="mt-auto bg-black hover:bg-green-600 text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200"
+              className="mt-auto bg-black hover:bg-[#4952a1] text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200"
             >
               Verify Phone
             </button>
@@ -175,8 +175,8 @@ const Verifications = () => {
         ) : ''
       }
       {
-        userIsTryingToVerifyGovernId ? <div className='animate__animated animate__fadeIn h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-white shadow-xl'>
-          <label htmlFor="govtId" className="text-md font-medium text-gray-700 bg-white">
+        userIsTryingToVerifyGovernId ? <div className='animate__animated animate__fadeIn h-[150px] flex flex-col p-3 gap-3 rounded-xl bg-[#1f2937] shadow-xl'>
+          <label htmlFor="govtId" className="text-md font-medium text-white">
             Enter your Government ID number:
           </label>
           <input
@@ -185,12 +185,12 @@ const Verifications = () => {
             type="text"
             id="govtId"
             placeholder="e.g. Aadhar, PAN, DL..."
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="px-3 py-2 1f2937 text-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#818cf8]"
           />
           <button
             onClick={handleVerification}
             type="button"
-            className="mt-auto bg-black hover:bg-green-600 text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200"
+            className="mt-auto bg-black hover:bg-[#4952a1] text-white text-sm py-2 rounded-md hover:shadow-2xl transition-all duration-200"
           >
             Verify ID
           </button>

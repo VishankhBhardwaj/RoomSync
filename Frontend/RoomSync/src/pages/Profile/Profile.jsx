@@ -21,13 +21,13 @@ const Profile = () => {
         <h1 className='text-3xl md:text-6xl text-white flex flex-row gap-3'><CiUser className='text-3xl md:text-6xl'/> Profile</h1>
         <p className='text-2xl text-gray-600'>Manage your profile information and preferences</p>
       </div>
-      <div className='text-center bg-[#e0f2f7] shadow-xl rounded-xl w-full flex items-center justify-around px-2 py-1 md:h-[45px]'>
-        <ul className='flex flex-wrap justify-around w-full bg-[#e0f2f7]'>
+      <div className='text-center bg-[#192231] shadow-xl rounded-md w-full flex items-center justify-around px-2 py-1 md:h-[45px]'>
+        <ul className='flex flex-wrap justify-around w-full bg-[#192231]'>
           {['Basic Info', 'Preferences', 'Photos', 'Verification'].map((tab) => (
             <li
               key={tab}
-              className={`transition-all duration-200 text-xs bg-[#e0f2f7] sm:text-sm md:w-[25%] md:text-base lg:text-xl px-2 py-1 rounded-md cursor-pointer ${activeTab === tab
-                  ? 'bg-[#007b8f] text-white shadow-sm'
+              className={`transition-all duration-200 text-white text-xs  sm:text-sm md:w-[25%] md:text-base lg:text-xl px-2 py-1 rounded-md cursor-pointer ${activeTab === tab
+                  ? 'bg-[#271944] text-[#a5b4fc] shadow-sm'
                   : 'text-[#1f2937]'
                 }`}
               onClick={() => setActiveTab(tab)}

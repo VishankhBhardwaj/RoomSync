@@ -78,7 +78,7 @@ const Home = () => {
                                 <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         ))}
-                        <button className="w-full sm:w-[120px] h-10 bg-[#500dc9] text-white rounded-md font-sans cursor-target">
+                        <button onClick={localStorage.getItem('token')?navigate('/signin'):navigate('/dashboard')} className="w-full sm:w-[120px] h-10 bg-[#500dc9] text-white rounded-md font-sans cursor-target">
                             Get Started
                         </button>
                     </div>

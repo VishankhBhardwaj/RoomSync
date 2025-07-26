@@ -16,15 +16,17 @@ import { CiHeart } from "react-icons/ci";
 import { FiMessageSquare } from "react-icons/fi";
 import { CiUser } from "react-icons/ci";
 import { GoGear } from "react-icons/go";
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-// npm install react-countup
+
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [activeTab, setactiveTab] = useState('Home');
   const [isOpen, setIsOpen] = useState(true);
   function handleClick(label) {
     setactiveTab(label);
-    console.log(activeTab);
   };
   useEffect(() => {
     const handleResize = () => {
@@ -43,12 +45,6 @@ const Dashboard = () => {
 
   function renderContent() {
     switch (activeTab) {
-      case "Home":
-        return (
-          <div className="overflow-auto h-screen">
-            <Home />
-          </div>
-        );
       case "RoomMateHub":
         return <RoomMateHub />;
       case "Matches":
@@ -62,20 +58,19 @@ const Dashboard = () => {
       case "Settings":
         return <Settings />
       default:
-        return <Home />; // or null, or a loader
+        return <Matches />;
     }
   }
   return (
     <div className="flex min-h-screen font-sans bg-gray-50 animate__animated animate__fadeIn w-full ">
       {/* Sidebar */}
-      <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-[#111827] shadow-md transition-all duration-200 hidden md:block`}>
+      <aside className={`${isOpen ? 'md:w-[264px]' : 'w-[100px]'}  bg-[#111827] shadow-2xl transition-all duration-200 hidden md:block border-r border-gray-200`}>
         <div className='flex justify-around border-b-2 bg-[#111827] md:w-[100%] mt-[8px] pb-5'>
-          <h1 className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-[#717ef4] mb-8px mt-[8px] bg-[#111827] relative text-center`}>RoomSync</h1>
+          <Link to='/' className={`${isOpen ? '' : 'hidden'} text-2xl font-bold text-[#717ef4] mb-8px mt-[8px] bg-[#111827] relative text-center`}>RoomSync</Link>
           {isOpen ? <GoArrowLeft onClick={() => setIsOpen(!isOpen)} className='mb-[20px] bg-[#111827]  w-[50px] h-[25px] relative top-3 rounded-xl text-white hover:text-[#3148a2] cursor-pointer transition-all duration-200' />
             : <GoArrowRight onClick={() => setIsOpen(!isOpen)} className={`mb-[20px] bg-[#111827]  w-[50px] h-[25px] relative top-1 rounded-xl text-white hover:text-[#3148a2] cursor-pointer transition-all duration-200`} />}
         </div>
         <nav className="space-y-6 text-gray-700 bg-[#111827] p-6" >
-          <NavItem icon={<FiHome className='bg-white'/>} label="Home" onClick={handleClick} isOpen={isOpen} active={activeTab === "Home"} />
           <NavItem icon={<SlPeople className='bg-white'/>} label="RoomMateHub" onClick={handleClick} isOpen={isOpen} active={activeTab === "RoomMateHub"} />
           <NavItem icon={<CiHeart className='bg-white'/>} label="Matches" onClick={handleClick} isOpen={isOpen} active={activeTab === "Matches"} />
           <NavItem icon={<FiMessageSquare className='bg-white'/>} label="Messages" badge={3} onClick={handleClick} isOpen={isOpen} active={activeTab === "Messages"} />
@@ -85,7 +80,6 @@ const Dashboard = () => {
         </nav>
       </aside>
 
-      {/* Main Content */}
       <div className='bg-[#f6f7f9] px-10px py-10px w-full sm:items-center'>
         {renderContent()}
       </div>
