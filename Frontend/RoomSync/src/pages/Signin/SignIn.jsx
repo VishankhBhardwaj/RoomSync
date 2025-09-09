@@ -9,9 +9,6 @@ const SignIn = () => {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  function handleClick() {
-    navigate('/');
-  }
   function togglePassword() {
     setShowPassword(!showPassword)
   }
@@ -46,7 +43,7 @@ const SignIn = () => {
           />
       </div>
       <div className='w-full h-screen flex flex-col justify-center items-center my-auto   space-y-3 animate__animated animate__fadeIn'>
-        <button onClick={handleClick} className='w-[200px] h-[50px] transition-all duration-200 text-white hover:bg-[#500dc9] hover:text-white rounded-md'>Back To Home</button>
+        <button onClick={()=>navigate('/')} className='w-[200px] h-[50px] transition-all duration-200 text-white hover:bg-[#500dc9] hover:text-white rounded-md'>Back To Home</button>
         <h1 className='text-3xl text-white'>Room Sync</h1>
         <h2 className='text-4xl text-white'>Welcome Back</h2>
         <p className='text-[#6c6f7e] text-xl'>

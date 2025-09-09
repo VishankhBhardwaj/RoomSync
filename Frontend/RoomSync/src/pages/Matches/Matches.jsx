@@ -166,34 +166,34 @@ const Matches = () => {
   });
 
   return (
-    <div className="flex flex-col pr-2 pl-6 py-4 md:px-20 md:py-6 h-[100%] w-[100%]  space-y-3 overflow-y-scroll">
+    <div className="flex flex-col px-4 py-4 md:px-20 md:py-6 h-[100%] w-[100%] space-y-3 overflow-y-scroll bg-[#0f1625] text-white">
       {/* Header row  */}
-      <div className="flex flex-row gap-4 border-b-2 md:border-b md:p-4">
+      <div className="flex flex-row gap-4 border-b border-[#374151] md:border-b md:p-4">
         <div>
-          <h1 className="text-3xl">YOUR MATCHES</h1>
-          <p className="text-gray-500">
+          <h1 className="text-2xl md:text-3xl font-bold">YOUR MATCHES</h1>
+          <p className="text-[#88a3af]">
             Discover compatible roommates based on your preferences
           </p>
         </div>
       </div>
 
       {/*  Filters Card */}
-      <div className="mt-6">
-        <div className="rounded-xl border border-white-200 bg-white p-8 shadow-sm">
+      <div className="mt-4 md:mt-6">
+        <div className="rounded-xl border border-[#374151] bg-[#1f2937] p-4 md:p-8 shadow-md">
           {/* title */}
-          <h3 className="mb-6 flex items-center gap-2 text-xl font-semibold bg-white">
-            <FilterIcon className="h-5 w-5" /> Filters
+          <h3 className="mb-4 md:mb-6 flex items-center gap-2 text-lg md:text-xl font-semibold text-white bg-[#1f2937]">
+            <FilterIcon className="h-5 w-5 text-[#1fadad]" /> Filters
           </h3>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 bg-white" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#88a3af] bg-[#1f2937]" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Name or location…"
-                className="w-full rounded-md border border-gray-300 py-2 pl-10 pr-3 text-sm focus:border-black focus:ring-black bg-white"
+                className="w-full rounded-md border border-[#374151] py-2 pl-10 pr-3 text-sm bg-[#374151] text-white outline-[#611d98] shadow-inner focus:border-[#611d98] focus:ring-[#611d98]"
               />
             </div>
 
@@ -220,12 +220,12 @@ const Matches = () => {
           </div>
         </div>
       </div>
-      <section className="mt-8 grid gap-6 sm:grid-cols-2">
+      <section className="mt-6 md:mt-8 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2">
         {filteredMatches.map((m) => (
           <MatchCard key={m.id} match={m} />
         ))}
         {filteredMatches.length === 0 && (
-          <p className="px-4 py-10 text-center text-gray-500">
+          <p className="px-4 py-10 text-center text-[#88a3af] col-span-full">
             No matches found with current filters.
           </p>
         )}
@@ -243,14 +243,14 @@ function SelectInput({ value, onChange, defaultLabel, options }) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="peer w-full appearance-none rounded-md border border-gray-300 bg-white py-2 pl-3 pr-8 text-sm focus:border-black focus:ring-black"
+        className="peer w-full appearance-none rounded-md border border-[#374151] bg-[#374151] py-2 pl-3 pr-8 text-sm text-white outline-[#611d98] shadow-inner focus:border-[#611d98] focus:ring-[#611d98]"
       >
         <option>{defaultLabel}</option>
         {options.map((o) => (
-          <option key={o}>{o}</option>
+          <option key={o} className="bg-[#374151] text-white">{o}</option>
         ))}
       </select>
-      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#88a3af]" />
     </div>
   );
 }
