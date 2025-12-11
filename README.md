@@ -1,24 +1,20 @@
-# RoomSync
-# 🏠 RoomSync – AI-Powered Roommate Finder
+# 🏠 RoomSync – Smart Roommate Finder (MERN Stack)
 
-RoomSync is a smart, AI-based roommate matching platform built using the **MERN stack**. It helps users find ideal roommates through intelligent matching based on personality, preferences, lifestyle, and real-time communication—presented with a modern, app-like UI.
+RoomSync is a modern roommate matching platform built using the **MERN stack**, featuring lifestyle-based filtering, chat UI, and a clean app-like design.  
+AI-powered matching and premium Stripe features are **planned** and partially scaffolded.
 
 ---
 
 ## 📑 Table of Contents
-
-- [Overview](#-overview)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Setup and Installation](#setup-and-installation)
-  - [1. Clone the Repository](#1-clone-the-repository)
-  - [2. Install Dependencies](#2-install-dependencies)
-  - [3. Configure Environment Variables](#3-configure-environment-variables)
-  - [4. Run the App Locally](#4-run-the-app-locally)
-- [AI Matching Logic](#ai-matching-logic)
-- [Real-Time Chat](#real-time-chat)
+- [AI Matching Logic (Planned)](#ai-matching-logic-planned)
+- [Chat UI](#chat-ui)
 - [UI/UX Design](#uiux-design)
+- [Stripe Integration (Demo)](#stripe-integration-demo)
 - [Deployment](#deployment)
 - [Roadmap](#roadmap)
 - [License](#license)
@@ -27,45 +23,51 @@ RoomSync is a smart, AI-based roommate matching platform built using the **MERN 
 
 ## 🧠 Overview
 
-**RoomSync** leverages AI to recommend compatible roommates based on quiz answers, preferences, and behavior. It integrates real-time chat, personalized filtering, and a sleek design for a seamless experience.
+**RoomSync** helps users find compatible roommates through lifestyle filters, profile insights, and a clean, responsive UI.
 
-The application is:
-- **Intelligent** – AI-backed roommate suggestions
-- **User-Centric** – Clean, mobile-responsive interface
-- **Functional** – Real-time chat, filtering, quiz-based compatibility
-- **Modern** – Left navigation, neumorphic design elements
+AI matching and real-time messaging are **planned features**, with backend structure already prepared for future upgrades.
+
+Key ideas:
+- **Scalable backend**
+- **Clean UI**
+- **Chat interface (frontend only)**
+- **Stripe demo integration**
 
 ---
 
 ## ✨ Features
 
-- 🧠 **AI-Based Matching** – Match users with similar interests, lifestyles, and habits.
-- 💬 **Real-Time Chat** – Integrated Socket.IO chat system for direct communication.
-- 📊 **Personality Quiz** – Tailored roommate suggestions using personality insights.
-- 🎯 **Advanced Filters** – Budget, location, cleanliness, and lifestyle filters.
-- 🔒 **Authentication** – Secure login/signup using JWT.
-- 📱 **Responsive UI** – Neumorphic/flat design with mobile support.
-- 📌 **Modern Navigation** – Vertical left-side nav bar for an app-like experience.
+### ✔ Implemented
+- 🔒 JWT Authentication  
+- 🎯 Roommate Filters (budget, location, habits)  
+- 🧑‍🤝‍🧑 User Profiles  
+- 💬 Chat UI (Frontend Only)  
+- 📱 Responsive UI  
+- 💳 Stripe Checkout (Demo Only)
+
+### ✔ Planned
+- 🧠 AI-based matching (OpenAI)  
+- ⚡ Real-time chat with Socket.IO  
+- ⭐ Premium features post-payment  
 
 ---
 
 ## 💻 Tech Stack
 
-### Frontend:
-- React.js (Vite)
+### **Frontend**
+- React (Vite)
 - Tailwind CSS
 - React Router
 - Axios
-- Zustand or Context API
-- Socket.IO Client
+- Zustand / Context API
 
-### Backend:
-- Node.js
-- Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- OpenAI API
-- Socket.IO Server
+### **Backend**
+- Node.js  
+- Express.js  
+- MongoDB + Mongoose  
+- JWT Authentication  
+- Stripe (demo)  
+- OpenAI API (for future AI matching)
 
 ---
 
@@ -73,7 +75,7 @@ The application is:
 
 RoomSync/
 │
-├── client/ # React Frontend
+├── client/
 │ ├── src/
 │ │ ├── components/
 │ │ ├── pages/
@@ -82,93 +84,136 @@ RoomSync/
 │ │ └── App.jsx
 │ └── public/
 │
-├── server/ # Node/Express Backend
+├── server/
 │ ├── config/
 │ ├── controllers/
 │ ├── models/
 │ ├── routes/
 │ ├── middleware/
-│ ├── sockets/
 │ └── server.js
 │
 ├── .env
 ├── README.md
 ├── package.json
-
 ---
 
 ## ⚙️ Setup and Installation
 
-### 1. Clone the Repository
-
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/yourusername/RoomSync.git
 cd RoomSync
-# Install frontend packages
+2️⃣ Install Dependencies
+Frontend
 cd client
 npm install
 
-# Install backend packages
+Backend
 cd ../server
 npm install
+
+3️⃣ Environment Variables
+
+Create .env inside server:
+
 PORT=5000
-MONGO_URI=your_mongodb_uri
+MONGO_URI=your_mongo_uri
 JWT_SECRET=your_jwt_secret
-OPENAI_API_KEY=your_openai_api_key
+
+# For future AI logic
+OPENAI_API_KEY=your_openai_key
+
+# Stripe demo
+STRIPE_SECRET_KEY=your_stripe_key
+
 CLIENT_URL=http://localhost:3000
-# Start backend
-cd server
+
+4️⃣ Run the App
+
+Start backend:
+
 npm run dev
 
-# Start frontend
+
+Start frontend:
+
 cd ../client
 npm run dev
-🤖 AI Matching Logic
-User fills out a personality & lifestyle quiz
 
-Quiz responses + bio/interests analyzed using OpenAI API
+🤖 AI Matching Logic (Planned)
 
-Similarity scoring algorithm matches users with potential roommates
+Personality & lifestyle quiz UI created
 
-🔌 Real-Time Chat
-Powered by Socket.IO
+Backend routes structured
 
-Typing indicators, real-time messaging, online/offline status
+OpenAI setup added
 
-Integrated inside user dashboard
+Actual matching algorithm not implemented yet
 
-🎨 UI/UX Design
-Design Language: Soft neumorphism & flat UI mix
+Planned outputs:
 
-Fonts: Inter, Poppins, or Roboto
+Compatibility score
 
-Layout: Left vertical nav bar (not typical top nav)
+Ranked suggestions
 
-Effects: Smooth transitions, subtle shadows, hover states
+AI explanation
 
-Responsive: Fully optimized for mobile/tablet/desktop
+💬 Chat UI
+
+The chat interface includes:
+
+Message bubbles
+
+Conversation list
+
+Responsive layout
+
+⚠️ Note:
+Chat does NOT include Socket.IO or backend yet.
+This is a frontend-only UI.🎨 UI/UX Design
+
+Soft neumorphism + flat hybrid UI
+
+Left-side navigation bar
+
+Clean transitions and responsiveness
+
+Fonts: Inter / Poppins
+
+💳 Stripe Integration (Demo)
+
+Stripe Checkout is integrated only for showcasing payment flow:
+
+Test payment works
+
+No premium features unlock yet
+
+Backend is ready for future expansion.
 
 🚀 Deployment
-Frontend: Vercel
 
-Backend: Render / Railway
+Frontend → Vercel
 
-Database: MongoDB Atlas
+Backend → Render / Railway
 
-Sockets: Deploy in same Node app or on separate Socket.IO instance
+Database → MongoDB Atlas
 
 🛣 Roadmap
- OAuth login (Google/GitHub)
 
- Email notifications for new matches
+Google/GitHub OAuth
 
- Block/report user functionality
+Full AI matching system
 
- Match scoring improvements using ML
+Real chat backend (Socket.IO)
 
- User avatars and bio enhancements
+Premium features after payment
 
- Admin panel
+Email notifications
+
+User avatars
+
+Admin panel
 
 📄 License
-This project is licensed under the MIT License – see the LICENSE file for details.
+
+MIT License. See the LICENSE file for details.
