@@ -7,9 +7,10 @@ import {
   Heart,
   MessageCircle,
 } from "lucide-react";            //  npm i lucide-react
-
+import { Navigate, useNavigate } from "react-router-dom";
 export default function MatchCard({ match }) {
   if (!match) return null;
+  const navigate = useNavigate();
 
   return (
     /* card wrapper with dark theme */
@@ -82,7 +83,7 @@ export default function MatchCard({ match }) {
 
       {/* CTA buttons */}
       <div className="flex items-center gap-2 md:gap-3 bg-[#1f2937]">
-        <button className="flex-1 rounded-md bg-[#5b1c8e] py-2 text-xs md:text-sm font-medium text-white hover:bg-[#a257e0] transition-all duration-200">
+        <button onClick={()=>{navigate('/userProfile')}} className="flex-1 rounded-md bg-[#5b1c8e] py-2 text-xs md:text-sm font-medium text-white hover:bg-[#a257e0] transition-all duration-200">
           View Profile
         </button>
         <button className="rounded-md border border-[#374151] p-2 text-white hover:bg-[#374151]">
