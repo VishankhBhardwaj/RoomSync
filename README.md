@@ -1,7 +1,6 @@
-# RoomSync
-# 🏠 RoomSync – AI-Powered Roommate Finder
+# 🏠 RoomSync – Modern Roommate Finder Platform
 
-RoomSync is a smart, AI-based roommate matching platform built using the **MERN stack**. It helps users find ideal roommates through intelligent matching based on personality, preferences, lifestyle, and real-time communication—presented with a modern, app-like UI.
+RoomSync is a modern roommate-finding platform built using the **MERN stack**. It provides user authentication, profile management, preferences tracking, and subscription handling—presented with a sleek, app-like UI.
 
 ---
 
@@ -27,24 +26,26 @@ RoomSync is a smart, AI-based roommate matching platform built using the **MERN 
 
 ## 🧠 Overview
 
-**RoomSync** leverages AI to recommend compatible roommates based on quiz answers, preferences, and behavior. It integrates real-time chat, personalized filtering, and a sleek design for a seamless experience.
+**RoomSync** is a modern roommate-finding platform built with the MERN stack. It provides user authentication, profile management, subscription handling, and a foundation for roommate matching features.
 
 The application is:
-- **Intelligent** – AI-backed roommate suggestions
-- **User-Centric** – Clean, mobile-responsive interface
-- **Functional** – Real-time chat, filtering, quiz-based compatibility
-- **Modern** – Left navigation, neumorphic design elements
+- **Secure** – JWT-based authentication with email verification
+- **User-Centric** – Clean, mobile-responsive dark-themed interface
+- **Feature-Rich** – Profile management, preferences, photo uploads, and settings
+- **Modern** – Left navigation, contemporary design with smooth animations
 
 ---
 
 ## ✨ Features
 
-- 🧠 **AI-Based Matching** – Match users with similar interests, lifestyles, and habits.
-- 💬 **Real-Time Chat** – Integrated Socket.IO chat system for direct communication.
-- 📊 **Personality Quiz** – Tailored roommate suggestions using personality insights.
-- 🎯 **Advanced Filters** – Budget, location, cleanliness, and lifestyle filters.
-- 🔒 **Authentication** – Secure login/signup using JWT.
-- 📱 **Responsive UI** – Neumorphic/flat design with mobile support.
+- 🔒 **Authentication** – Secure login/signup using JWT with email verification.
+- 👤 **User Profiles** – Manage personal information, preferences, and bio.
+- � **Subscription Management** – Stripe integration for premium features.
+- � **Email Notifications** – Weekly marketing emails via Nodemailer.
+- 🤖 **AI Chatbot** – Smart assistant to help users navigate the platform.
+- 📸 **Photo Upload** – Cloudinary integration for user photos.
+- ⚙️ **User Settings** – Marketing preferences and account management.
+- 📱 **Responsive UI** – Modern dark theme with mobile support.
 - 📌 **Modern Navigation** – Vertical left-side nav bar for an app-like experience.
 
 ---
@@ -124,30 +125,29 @@ npm run dev
 # Start frontend
 cd ../client
 npm run dev
-🤖 AI Matching Logic
-User fills out a personality & lifestyle quiz
+## 🔐 Authentication & Security
+- JWT-based authentication with 7-day token expiration
+- Bcrypt password hashing
+- Email verification via OTP (Nodemailer)
+- Protected routes with middleware
 
-Quiz responses + bio/interests analyzed using OpenAI API
+## 💳 Payment Integration
+- Stripe subscription management
+- Checkout session handling
+- Invoice tracking and storage
+- Payment history retrieval
 
-Similarity scoring algorithm matches users with potential roommates
+## � Email System
+- Automated weekly marketing emails (node-cron)
+- OTP verification emails
+- Marketing opt-in/opt-out preferences
 
-🔌 Real-Time Chat
-Powered by Socket.IO
-
-Typing indicators, real-time messaging, online/offline status
-
-Integrated inside user dashboard
-
-🎨 UI/UX Design
-Design Language: Soft neumorphism & flat UI mix
-
-Fonts: Inter, Poppins, or Roboto
-
-Layout: Left vertical nav bar (not typical top nav)
-
-Effects: Smooth transitions, subtle shadows, hover states
-
-Responsive: Fully optimized for mobile/tablet/desktop
+## 🎨 UI/UX Design
+- Design Language: Modern dark theme with gradient accents
+- Fonts: System fonts optimized for readability
+- Layout: Left vertical nav bar with collapsible sidebar
+- Effects: Smooth transitions, hover states, animations
+- Responsive: Fully optimized for mobile/tablet/desktop
 
 🚀 Deployment
 Frontend: Vercel
@@ -158,18 +158,23 @@ Database: MongoDB Atlas
 
 Sockets: Deploy in same Node app or on separate Socket.IO instance
 
-🛣 Roadmap
- OAuth login (Google/GitHub)
+## 🛣 Roadmap
 
- Email notifications for new matches
+### Core Features (In Progress)
+- [ ] **AI-Based Matching System** – Implement OpenAI integration for personality-based matching
+- [ ] **Personality Quiz** – Complete quiz interface and scoring logic
+- [ ] **Real-Time Chat** – Socket.IO implementation for messaging
+- [ ] **Roommate Matching Algorithm** – Compatibility scoring and filtering
 
- Block/report user functionality
-
- Match scoring improvements using ML
-
- User avatars and bio enhancements
-
- Admin panel
+### Enhancements
+- [ ] OAuth login (Google/GitHub)
+- [ ] Email notifications for new matches
+- [ ] Block/report user functionality
+- [ ] Photo gallery frontend implementation
+- [ ] Phone verification (Twilio integration)
+- [ ] User avatars and bio enhancements
+- [ ] Admin panel
+- [ ] Match scoring improvements using ML
 
 📄 License
 This project is licensed under the MIT License – see the LICENSE file for details.
