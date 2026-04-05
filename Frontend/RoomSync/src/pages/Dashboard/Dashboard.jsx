@@ -1,16 +1,13 @@
 import { React, useState, useEffect } from 'react';
-import { FaHome, FaChartBar, FaHeart, FaComments, FaUser, FaCog } from 'react-icons/fa';
-import CountUp from 'react-countup'; // Make sure this is installed
-import Home from '../Home/Home';
-import Matches from '../Matches/Matches';
-import Messages from '../Messages/Messages';
-import Profile from '../Profile/Profile';
-import Settings from '../Settings/Settings';
 import { GoArrowLeft, GoArrowRight, GoGear } from "react-icons/go";
 import { FiHome, FiMessageSquare } from "react-icons/fi";
 import { CiHeart, CiUser } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Matches from '../Matches/Matches';
+import Messages from '../Messages/Messages';
+import Profile from '../Profile/Profile';
+import Settings from '../Settings/Settings';
 
 
 
@@ -20,7 +17,7 @@ const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
   function handleClick(label) {
     setactiveTab(label);
-    
+
     if (window.innerWidth < 768) {
       window.scrollTo(0, 0);
     }
@@ -30,12 +27,12 @@ const Dashboard = () => {
       if (window.innerWidth < 768) {
         setIsOpen(false);
       } else {
-        setIsOpen(true); 
+        setIsOpen(true);
       }
     };
 
     handleResize(); // run once on mount
-    window.addEventListener('resize', handleResize); 
+    window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -72,7 +69,7 @@ const Dashboard = () => {
       </aside>
 
       {/* Main content area */}
-      <div className='bg-[#f6f7f9] w-full sm:items-center min-h-screen pb-16 md:pb-0'>
+      <div className='bg-[#0f1625] w-full sm:items-center min-h-screen pb-16 md:pb-0'>
         {renderContent()}
       </div>
 

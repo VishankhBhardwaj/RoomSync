@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MessageSquareText, Search } from 'lucide-react';
 import Conversation from '../../Components/MessagesComponents/Conversation';
 import PcConversation from '../../Components/MessagesComponents/PcConversation';
@@ -36,10 +36,8 @@ const Messages = () => {
       isOnline: true
     }
   ];
-  useEffect(() => {
-    console.log(activeConversationId);
-  })
-  
+
+
   return (
     <div className='w-full h-full py-2 md:py-4 animate__animated animate__fadeInDown bg-[#0f1625]'>
       <div className='flex flex-row gap-3 md:gap-4 border-b border-[#374151] px-3 md:px-4 pb-3'>
@@ -101,7 +99,7 @@ const Messages = () => {
         </div>
         <div className='rounded-xl shadow-md md:w-[60%] hidden md:block bg-[#1f2937] md:h-full'>
           {activeConversationId ? (
-            <PcConversation conversation={conversations.find(c=>c.id === activeConversationId)}/>
+            <PcConversation conversation={conversations.find(c => c.id === activeConversationId)} />
           ) : (
             <div className="h-full w-full flex items-center justify-center">
               <div className="text-center p-8">

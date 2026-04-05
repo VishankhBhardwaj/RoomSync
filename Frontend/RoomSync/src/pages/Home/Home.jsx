@@ -22,9 +22,9 @@ const Home = () => {
 
     const items = [
         { icon: <VscHome size={18} />, label: 'Home', onClick: () => navigate('/') },
-        { icon: <IoIosLogIn  size={18} />, label: 'Login', onClick: () => navigate('/signin') },
+        { icon: <IoIosLogIn size={18} />, label: 'Login', onClick: () => navigate('/signin') },
         { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => navigate('/dashboard') },
-        { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
+        { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => navigate('/dashboard') },
     ];
 
     useEffect(() => {
@@ -33,16 +33,14 @@ const Home = () => {
         }
     }, [token]);
 
-    const handleAnimationComplete = () => {
-        console.log('Animation completed!');
-    };
+    const handleAnimationComplete = () => { };
 
     const handleClick = () => {
         if (token) {
             setLoggedIn(true);
             navigate('/dashboard');
         } else {
-            toast.success("Please Login/Register first");
+            toast.info("Please Login/Register first");
             navigate('/signin');
         }
     };
@@ -78,7 +76,7 @@ const Home = () => {
                                 <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#61a6fa] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         ))}
-                        <button onClick={()=> localStorage.getItem('token')?navigate('/signin'):navigate('/dashboard')} className="w-full sm:w-[120px] h-10 bg-[#500dc9] text-white rounded-md font-sans cursor-target">
+                        <button onClick={() => localStorage.getItem('token') ? navigate('/signin') : navigate('/dashboard')} className="w-full sm:w-[120px] h-10 bg-[#500dc9] text-white rounded-md font-sans cursor-target">
                             Get Started
                         </button>
                     </div>
