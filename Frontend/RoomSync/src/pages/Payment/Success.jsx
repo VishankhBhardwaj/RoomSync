@@ -6,9 +6,6 @@ import { useSearchParams } from "react-router-dom";
 const Success = () => {
     const [searchParams] = useSearchParams();
     const sessionId = searchParams.get("session_id");
-    useEffect(()=>{
-        console.log(sessionId);
-    })
     if(sessionId){
         useEffect(()=>{
             async function getDetails(){
@@ -18,9 +15,8 @@ const Success = () => {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         }
                     })
-                    console.log(res.data);
                 }catch(error){
-                    console.log(error.message || res.error)
+                    console.error(error.message || res.error)
                 }
             }
             getDetails();

@@ -21,7 +21,7 @@ const Billings = () => {
         sessionId: res.data.sessionId,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   useEffect(() => {
@@ -30,7 +30,6 @@ const Billings = () => {
     const res = await axios.get('http://localhost:3000/api/payment/fetchPaymentInfo', {
       headers: { Authorization: `Bearer ${token}` }
     });
-    console.log(res.data);
     if (res.data && res.data[0]?.Subscription) {
       setInvoice(res.data[0].Invoice);
       setIsSubscribed(true);

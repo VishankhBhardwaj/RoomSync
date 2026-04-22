@@ -38,7 +38,6 @@ const Preferences = () => {
           },
         }
       );
-      console.log(res.data);
     }catch(err){
       console.error('Error saving preferences:', err);
     }

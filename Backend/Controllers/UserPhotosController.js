@@ -18,7 +18,6 @@ exports.UserUploadedPhotos = [
                 folder: "RoomSyncUserPhotos"
             });
             const imageUrl = cloudRes.secure_url;
-            console.log(imageUrl);
             let result = await UserPhotosModel.findOne({ user: userId });
             if (result) {
                 result.photos.push({ photoUrl: imageUrl });

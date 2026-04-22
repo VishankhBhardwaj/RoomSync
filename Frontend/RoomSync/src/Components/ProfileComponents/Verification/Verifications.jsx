@@ -42,7 +42,7 @@ const Verifications = () => {
           GovernmentId: updatedGovIdStatus
         })
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
   }

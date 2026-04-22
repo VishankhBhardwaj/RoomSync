@@ -14,9 +14,8 @@ const Photos = () => {
           },
         });
         setPhotos(res.data.data.photos);
-        console.log(res.data.data.photos)
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
     getData();

@@ -29,5 +29,5 @@ cron.schedule("0 10 * * 1", async () => {
         });
 
     }
-    console.log("Weekly marketing emails sent.");
+    console.info("Weekly marketing emails sent.");
 })

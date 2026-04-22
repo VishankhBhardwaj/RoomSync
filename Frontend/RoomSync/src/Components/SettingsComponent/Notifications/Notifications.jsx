@@ -13,7 +13,6 @@ const Notifications = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      console.log(res.data);
     } catch (error) {
       console.error("Error fetching marketing opt-in status:", error.message);
     }

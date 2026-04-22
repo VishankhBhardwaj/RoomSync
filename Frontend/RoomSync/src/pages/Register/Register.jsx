@@ -42,7 +42,7 @@ const Register = () => {
                     toast.fail("Register Failed")
                 }
             } catch (error) {
-                console.log("Error occurred", error);
+                console.error("Error occurred", error);
             }
         }
     }

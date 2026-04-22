@@ -41,8 +41,6 @@ www.roomsync.com`,
 contact@roomsync.com<br>
 <a href="https://www.roomsync.com">Visit our website</a></p>`
     });
-
-    console.log("OTP email sent: %s", info.messageId);
 }
 const sendEmail = async ({ to, subject, html }) => {
   await transporter.sendMail({
